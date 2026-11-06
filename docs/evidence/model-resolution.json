@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "date": "2026-11-06",
+  "status": "passed",
+  "cli_version": "0.167.0-alpha.3.2",
+  "parent_thread_id": "01a1b020-052c-73f0-83e8-d7488d1fc686",
+  "parent_model": "gpt-6-astra",
+  "process": {
+    "exit_code": 0,
+    "seconds": 22.69,
+    "sandbox": "read-only",
+    "scope": "Three minimal native role model configuration probes; no engine/gameplay test."
+  },
+  "roles": [
+    {
+      "role": "probe-default",
+      "thread_id": "01a1b020-1d78-7822-a7e1-0ce724eaa325",
+      "parent_thread_id": "01a1b020-052c-73f0-83e8-d7488d1fc686",
+      "agent_path": "/root/probe_default",
+      "configured_model": "gpt-6.1-sol",
+      "observed_turn_model": "gpt-6.1-sol",
+      "sandbox": "read-only",
+      "rollout_sha256": "cd0db17af10dd18136c77f9c788520d90e9739fe245c7634379c53aaad6deedf",
+      "status": "passed"
+    },
+    {
+      "role": "probe-changed",
+      "thread_id": "01a1b020-2d1b-7db2-9d99-2ac97b8170c3",
+      "parent_thread_id": "01a1b020-052c-73f0-83e8-d7488d1fc686",
+      "agent_path": "/root/probe_changed",
+      "configured_model": "gpt-6-astra",
+      "observed_turn_model": "gpt-6-astra",
+      "sandbox": "read-only",
+      "rollout_sha256": "aa4e9eb6acabee4c4e44cb94509d96666f16a799b5f0f007702cca519f956d4f",
+      "status": "passed"
+    },
+    {
+      "role": "probe-inherited",
+      "thread_id": "01a1b020-39bb-7a21-94db-2084bd63ce0f",
+      "parent_thread_id": "01a1b020-052c-73f0-83e8-d7488d1fc686",
+      "agent_path": "/root/probe_inherited",
+      "configured_model": null,
+      "observed_turn_model": "gpt-6-astra",
+      "sandbox": "read-only",
+      "rollout_sha256": "497c27a4091fceeb2e2e8225c31780556ba9d0b6298b4a25923144e7bc859468",
+      "status": "passed"
+    }
+  ],
+  "spawns": [
+    {
+      "task_name": "probe_default",
+      "agent_type": "probe-default",
+      "fork_turns": "none"
+    },
+    {
+      "task_name": "probe_changed",
+      "agent_type": "probe-changed",
+      "fork_turns": "none"
+    },
+    {
+      "task_name": "probe_inherited",
+      "agent_type": "probe-inherited",
+      "fork_turns": "none"
+    }
+  ],
+  "scope": "Isolated minimal native custom-role probes verify explicit default, changed model and model omission. Actual turn_context metadata was inspected; no self-reported identity was accepted.",
+  "limitations": [
+    "Not a gameplay or specialist domain-quality test.",
+    "No claim all arbitrary model IDs are available to every account.",
+    "Parent inheritance tested with no explicit spawn override and no global subagent model default.",
+    "Raw session records and local test workspace remain local."
+  ]
+}

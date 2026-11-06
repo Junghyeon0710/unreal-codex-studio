@@ -10,7 +10,9 @@ Read architecture and define observable acceptance. Follow the manager's
 roster, scopes, dependencies and useful checks for this request. Do not turn the
 five-worker door example into a universal requirement. Narrow work may need one
 expert; the Astra manager decides staffing without asking routine roster questions.
-Use actual host calls for selected Sol specialists and never invent worker IDs.
+Use actual host calls for selected specialists with their configured or
+host-resolved inherited models; never force shipped Sol after an override or invent
+worker IDs. Unsupported model IDs are explicit host/provider failures.
 Assigned workers stay within scope without recursively launching another team.
 
 Select independent review when useful, requested or claimed; the reviewer must

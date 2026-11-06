@@ -13,6 +13,15 @@ ROLES = ('implementer', 'reviewer', 'editor', 'verification', 'qa')
 STAGES = ('editor', 'verification', 'qa')
 
 
+def actual_model(value, role):
+    """Record the resolved execution model, not an inheritance/config directive."""
+    if not isinstance(value, str) or not value.strip() or any(c.isspace() for c in value):
+        raise ValueError(role + ' requires a nonempty resolved model ID without whitespace')
+    if value.casefold() == 'inherit':
+        raise ValueError(role + ': record the actual resolved model ID, not inherit')
+    return value
+
+
 def strict_initialize(path, root, participants, scopes, criteria, max_repairs=3):
     if set(participants) != {'coordinator', *ROLES}:
         raise ValueError('Declare coordinator and all five specialist roles')
@@ -20,9 +29,7 @@ def strict_initialize(path, root, participants, scopes, criteria, max_repairs=3)
     if len({i.casefold() for i in ids}) != 6:
         raise ValueError('All six host IDs must be distinct; roles cannot self-approve')
     for role, person in participants.items():
-        expected = 'gpt-6-astra' if role == 'coordinator' else 'gpt-6.1-sol'
-        if person.get('model') != expected:
-            raise ValueError(role + ' requires explicit model ' + expected)
+        actual_model(person.get('model'), role)
     data = loop.initialize(path, root, participants['implementer']['id'],
         participants['reviewer']['id'], participants['coordinator']['id'],
         scopes, criteria, ['studio-editor', 'studio-verification', 'studio-qa'], max_repairs)
@@ -166,9 +173,7 @@ def validate_plan(root, participants, stages, scopes, criteria, author=None):
     for role, person in participants.items():
         loop.nonempty(role, 'role')
         loop.nonempty(person.get('id'), role + ' actual host ID')
-        expected = 'gpt-6-astra' if role == 'coordinator' else 'gpt-6.1-sol'
-        if person.get('model') != expected:
-            raise ValueError(role + ' requires explicit model ' + expected)
+        actual_model(person.get('model'), role)
     director = participants['coordinator']['id'].casefold()
     if any(p['id'].casefold() == director for r, p in participants.items() if r != 'coordinator'):
         raise ValueError('A selected worker must differ from the coordinator')

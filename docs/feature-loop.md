@@ -1,12 +1,20 @@
 # Adaptive Astra management
 
 The Astra manager (`gpt-6-astra`) chooses the smallest sufficient team for the
-actual task. Selected specialists default to `gpt-6.1-sol`. A role catalog is not a
+actual task. Specialist role files ship with `gpt-6.1-sol`; these are configurable defaults. A role catalog is not a
 fixed roster. Decide roles, count, scopes, dependencies and meaningful checks from
 the request, risk and available tools; add or reassign specialists when findings
 justify it. Do not ask the user to choose routine staffing. Preserve explicit user
 choices, authorization, sandbox and approval policy. Config defaults do not change
-an existing root chat's model.
+an existing root chat's model. Respect edited role IDs or omitted model fields;
+never force shipped Sol/Astra after an override. A role's explicit `model` wins;
+when omitted, host resolution uses an explicit spawn model, then
+`agents.default_subagent_model`, then the parent. This repository sets no
+`default_subagent_model`. Inheritance is omission/commenting, not `model = "inherit"`.
+The root config default for new root sessions and an explicitly spawned
+technical-director role are separate settings. See [model configuration](../README.md#configure-models).
+Unsupported IDs must fail honestly at the host/provider; syntax validation does not
+prove availability or permission to use them.
 
 A short explanation may need only the manager or one researcher and no journal.
 A material change may need one editor specialist. A code defect may warrant a code
@@ -50,7 +58,10 @@ an adaptive plan. It checks evidence consistency, not identities, model authenti
 semantic correctness or whether a test really ran. The manager is the single journal
 writer. Ordinary explanations and read-only answers do not require this tool.
 
-`participants.json` maps only actually selected roles to `{id, model}`. It includes
+`participants.json` maps only actually selected roles to `{id, model}`. Its model
+is the actual resolved execution ID, even when the config omits `model`; it cannot
+be blank, omitted or literal `inherit`. Alternate model IDs are accepted in both
+adaptive and strict-five profiles; the strict profile fixes roles, not models. It includes
 `coordinator` and at least one launched worker; arbitrary role names such as
 `material-artist` are supported. Reserved `reviewer` selects independent snapshot
 review. The plan's `author` identifies the responsible worker, not necessarily a

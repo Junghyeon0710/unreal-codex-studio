@@ -23,8 +23,15 @@ The QA team defines real QA roles and evidence requirements, but its manual QA p
 The Astra manager selects the smallest sufficient roster for the actual request,
 then assigns scopes, dependencies and meaningful checks. It decides routine
 staffing autonomously and adds/reassigns workers when findings justify it. The
-requested model defaults remain `gpt-6-astra` for management and `gpt-6.1-sol` for
-selected specialists; this does not retroactively change an existing root chat.
+shipped model defaults remain `gpt-6-astra` for management and `gpt-6.1-sol` for
+specialists, but users can edit or omit each role's model. The manager respects
+those settings rather than forcing shipped IDs. Omitted role models resolve through
+explicit spawn model, `agents.default_subagent_model`, then parent; this repository
+ships no such default. Omit/comment out `model` to inherit, not literal `inherit`.
+New-root configuration and separately spawned director settings are distinct, and
+neither retroactively changes an existing chat. Unsupported IDs are explicit
+host/provider failures; journal attribution records the actual resolved model and
+is not proof from a config file. See [model configuration](../README.md#configure-models).
 
 | Example task | Possible selected team | Relevant evidence |
 |---|---|---|

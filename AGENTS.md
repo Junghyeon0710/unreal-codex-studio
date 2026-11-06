@@ -23,9 +23,15 @@ an open editor or replace a user's engine/model/approval settings.
 - Preserve existing work. Do not save every dirty asset, overwrite maps, reset Git,
   or terminate unrelated editors. Honor the user's existing authorization without
   adding repetitive approval gates.
-- The requested root/technical-director default is gpt-6-astra; specialist roles
-  explicitly use gpt-6.1-sol. This does not change an existing host chat model.
-  Preserve sandbox, approval policy and explicit user choices.
+- Shipped root/technical-director defaults are gpt-6-astra; specialist role files
+  ship with gpt-6.1-sol. They are configurable defaults, not mandatory identities.
+  Respect edited model IDs and omitted model fields; never force the shipped model
+  after a user override. Omitted role model inherits host resolution (explicit
+  spawn model, then agents.default_subagent_model, then parent). This repository
+  ships no default_subagent_model. Omit/comment out model to inherit, not "inherit".
+  Root config affects new root sessions; technical-director is a separate spawned
+  role, and existing chats keep their models. Preserve sandbox/approval policy.
+  Unsupported IDs are host/provider failures, not permission to substitute silently.
 - Follow docs/verification.md: instructions loaded, source checks, engine compile,
   Blueprint compile/save, PIE, gameplay and packaged startup are separate results.
 - Send short progress updates. Report what changed, actual evidence and remaining

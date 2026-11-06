@@ -1,6 +1,31 @@
 # Validation results — 2026-11-06
 
-## Current toolkit: adaptive staffing
+## Current toolkit: configurable models
+
+The model-configuration update passed **49 Python tests**, validation for
+**15 skills / 13 roles**, and quick checks for the two edited skills. Shipped
+Astra/Sol pins remain unchanged; alternate and omitted configuration models are
+accepted, while journals require actual resolved model attribution. No engine,
+editor, package or gameplay rerun was selected for this source-only update.
+See [model configuration validation](model-configuration-validation.md).
+
+An isolated read-only native CLI test used an actual `gpt-6-astra` parent and three
+custom roles, without an explicit spawn-model override or subagent-model default:
+
+| Role configuration | Observed turn model | Result |
+|---|---|---|
+| Explicit `gpt-6.1-sol` | `gpt-6.1-sol` | Passed |
+| Changed to explicit `gpt-6-astra` | `gpt-6-astra` | Passed |
+| Model field omitted | Parent `gpt-6-astra` | Passed |
+
+Actual session/`turn_context` metadata was inspected rather than accepting agents'
+self-reported identities. [Curated native evidence](evidence/model-resolution.json)
+retains session IDs, observed models and rollout hashes. This limited probe checks
+configuration resolution, not model quality, specialist skill, arbitrary model-ID
+availability or every precedence combination. Raw records and the test workspace
+remain local.
+
+## Earlier toolkit: adaptive staffing
 
 The adaptive update passed **44 Python tests**, configuration validation for
 **15 skills / 13 roles**, and quick validation of the three edited skills.

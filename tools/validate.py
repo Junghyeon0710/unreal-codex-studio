@@ -8,6 +8,17 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 
+def validate_model(data, key="model"):
+    """Omission inherits; a configured ID is syntax-checked, not provider-verified."""
+    if key not in data:
+        return
+    value = data[key]
+    if not isinstance(value, str) or not value.strip() or any(c.isspace() for c in value):
+        raise ValueError(key + " must be a nonempty model ID without whitespace, or omitted")
+    if value.casefold() == "inherit":
+        raise ValueError("Omit/comment out " + key + " to inherit; 'inherit' is not a model ID")
+
+
 def main():
     errors = []
     skills = list((ROOT / ".agents/skills").glob("*/SKILL.md"))
@@ -28,12 +39,16 @@ def main():
             data = tomllib.loads(path.read_text(encoding="utf-8"))
             assert data["name"] == path.stem
             assert data["description"] and data["developer_instructions"]
-            assert data["model"] == ("gpt-6-astra" if path.stem == "technical-director" else "gpt-6.1-sol")
+            validate_model(data)
             assert "sandbox_mode" not in data
         except (ValueError, KeyError, AssertionError) as exc:
             errors.append(str(path.relative_to(ROOT)) + ": " + repr(exc))
-    config = tomllib.loads((ROOT / ".codex/config.toml").read_text(encoding="utf-8"))
-    assert config["model"] == "gpt-6-astra"
+    try:
+        config = tomllib.loads((ROOT / ".codex/config.toml").read_text(encoding="utf-8"))
+        validate_model(config)
+        validate_model(config.get("agents", {}), "default_subagent_model")
+    except (ValueError, TypeError, OSError) as exc:
+        errors.append(".codex/config.toml: " + str(exc))
     assert {"code-implementer", "code-reviewer", "editor-engineer", "verification-engineer", "qa-engineer"} <= {p.stem for p in roles}
     json.loads((ROOT / ".codex/hooks.json").read_text(encoding="utf-8"))
     for folder in ["tools", "tests", ".codex/hooks"]:

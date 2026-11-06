@@ -65,12 +65,12 @@ flowchart LR
   M --> C[Complete selected scope or report limits]
 ```
 
-`gpt-6-astra` is the root/technical-director default; selected specialist roles
-explicitly use `gpt-6.1-sol`. This applies to new compatible sessions and does not
-change an existing chat's model, sandbox or approval policy. Actual delegation
-uses host calls; role files and journals do not authenticate identities or launch
-workers. One designated owner exclusively controls all official MCP calls,
-binary assets and PIE whenever editor work is selected.
+The shipped root/technical-director default is `gpt-6-astra`; specialist role files
+ship with `gpt-6.1-sol`. These are configurable. The manager respects edited IDs and
+host-resolved inheritance rather than forcing shipped models. Actual delegation
+uses host calls; role files and journals do not authenticate identities, prove a
+model ran or launch workers. One owner exclusively controls official MCP, binary
+assets and PIE whenever editor work is selected.
 
 For tracked multi-step work, optional `tools/studio_pipeline.py` records the selected
 roster, scoped snapshot, stages, required checks and reasoned plan changes. It rejects
@@ -83,6 +83,36 @@ profile remain compatible; they are not mandatory staffing. The optional two-wor
 The [completed five-worker door experiment](docs/studio-door-validation.md) is
 historical evidence for its frozen snapshot. Its recorded 35-test gate does not
 validate later adaptive-policy/tool changes.
+
+## Configure models
+
+Edit the top-level `model` in [.codex/config.toml](.codex/config.toml) to change the
+default for **new root sessions**. The separately spawned director uses
+[technical-director.toml](.codex/agents/technical-director.toml); changing the root
+setting does not override an explicit model in that role or switch an existing chat.
+
+For one role, edit its `model` in [.codex/agents](.codex/agents), or delete/comment
+out that line to inherit. For all specialists, make that edit in each specialist
+TOML; include the director only if you also want its model changed. A remaining
+explicit role pin continues to win. Do not write `model = "inherit"`.
+
+```toml
+# Explicit model: replace with an ID your host/provider supports.
+model = "gpt-6.1-sol"
+# To inherit instead, remove or comment out the line above.
+```
+
+Resolution for a subagent is: explicit role `model` first; if omitted, explicit spawn
+model, then `agents.default_subagent_model`, then the parent. This repository ships
+no `default_subagent_model`. You may optionally set that key under `[agents]` for
+unpinned roles; it cannot override an explicit role pin. Omission inherits the
+parent only when neither a spawn override nor a user-configured default applies.
+[Official subagent configuration](https://learn.chatgpt.com/docs/agent-configuration/subagents)
+
+The validator accepts omitted models and nonempty alternate IDs; it does not check
+provider availability. Report an unsupported model honestly instead of silently
+substituting. Keep sandbox/approval settings unchanged. Run journals record actual
+resolved model IDs, not `inherit` or a config default as proof of execution.
 
 ## Quick start
 

@@ -59,8 +59,8 @@ class StudioTests(unittest.TestCase):
             p.initialize(self.root/'bad.json', self.root, self.people, ['Source'], ['x'], profile='strict-five')
         self.people['qa']['id'] = 'host-qa'
         self.people['qa']['model'] = 'other-model'
-        with self.assertRaises(ValueError):
-            p.initialize(self.root/'bad.json', self.root, self.people, ['Source'], ['x'], profile='strict-five')
+        data = p.initialize(self.root/'alternate.json', self.root, self.people, ['Source'], ['x'], profile='strict-five')
+        self.assertEqual('other-model', data['studio']['participants']['qa']['model'])
         with self.assertRaises(ValueError):
             p.custody(self.journal, 'host-coordinator', 'acquire')
 

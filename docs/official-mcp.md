@@ -49,7 +49,8 @@ two agents edit the same Blueprint, map or global PIE session concurrently.
 tools/studio.py connect updates only the managed mcp_servers.unreal table in this
 workspace's .codex/config.toml. It never writes global Codex settings. Native HTTP
 MCP tools are available after trusting/reloading the project in a compatible host.
-The requested studio model defaults are explicit (Astra director, Sol specialists).
+Shipped model defaults are explicit (Astra director, Sol specialists), but users
+may edit or omit them; respect host-resolved inheritance and overrides.
 Connection setup does not change models, sandbox or approval policy. Existing host
 chats retain their model. Only the assigned editor engineer calls MCP.
 
