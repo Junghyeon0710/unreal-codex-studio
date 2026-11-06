@@ -56,6 +56,15 @@ Review its implementation before trusting. It blocks apply_patch text operations
 on .uasset/.umap; it cannot intercept every shell, MCP or filesystem operation and
 must not be advertised as comprehensive protection.
 
+## Empty fixtures and cooking
+
+The example generator limits both official plugins to Editor targets. In UE 5.8.4,
+AllToolsets loads GameFeatures in the cooker; a missing GameFeatureData primary
+asset rule causes cook failure. Empty fixtures include an editor-only rule so the
+packaged game does not try to load this editor dependency. See
+[the actual build/package investigation](build-package-validation.md).
+Keep a real game's runtime GameFeatureData rules intact if gameplay uses them.
+
 ## Sources
 
 - [Epic: Unreal MCP in Unreal Editor](https://dev.epicgames.com/documentation/unreal-engine/unreal-mcp-in-unreal-editor)

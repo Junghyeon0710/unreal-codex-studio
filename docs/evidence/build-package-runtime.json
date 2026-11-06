@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-06",
+  "engine": "5.8.4",
+  "engine_changelist": 58902052,
+  "platform": "Win64",
+  "configuration": "Development",
+  "fixture": "StudioBuild",
+  "toolchain": "MSVC 14.50.35735 / Windows SDK 10.0.22621.0",
+  "editor_build": {
+    "status": "passed",
+    "exit_code": 0,
+    "seconds": 98.95,
+    "actions": 10
+  },
+  "package": {
+    "status": "passed",
+    "exit_code": 0,
+    "seconds": 68.29,
+    "files": 56,
+    "bytes": 1016290478,
+    "formats": [
+      "exe",
+      "pak",
+      "utoc",
+      "ucas"
+    ],
+    "official_mcp_in_game_target_receipt": false
+  },
+  "packaged_runtime": {
+    "status": "passed",
+    "exit_code": 0,
+    "seconds": 7.57,
+    "run_id": "84333b9cee984c6c8e3679325f7771e6",
+    "runtime": {
+      "status": "passed",
+      "run_id": "84333b9cee984c6c8e3679325f7771e6",
+      "map": "Entry",
+      "rhi": "D3D12",
+      "is_editor": false,
+      "is_commandlet": false,
+      "game_world": true,
+      "mesh_registered": true,
+      "mesh_loaded": true,
+      "screenshot_written": true,
+      "frames": 90,
+      "health": 75,
+      "movement_x": 300
+    },
+    "log_error_count": 0,
+    "log_warning_count": 1,
+    "log_warnings": [
+      "[2026.11.06-06.48.08:632][  0]LogD3D12RHI: Warning: TSR 16-bit VALU is disabled on NVIDIA due to known compiler bugs in drivers older than 610.00."
+    ]
+  },
+  "artifacts_sha256": {
+    "StudioBuild.exe": "8787d148f0f2a75dfefb1c5fcfe07552d62ae165f4ea16092e58cd348896649f",
+    "StudioBuild\\Binaries\\Win64\\StudioBuild.exe": "05b87d4cd6874f0dcefa6afc0b14f5bcdd7ab25f29300eacd5b60e16f5e4a173"
+  },
+  "prior_failures": [
+    {
+      "stage": "cook",
+      "exit_code": 25,
+      "reason": "AllToolsets editor dependency GameFeatures lacked a GameFeatureData primary asset rule.",
+      "resolution": "Add the type rule to the disposable fixture."
+    },
+    {
+      "stage": "packaged log audit",
+      "runtime_assertions": "passed",
+      "exit_code": 0,
+      "verification": "failed",
+      "reason": "A non-editor-only type rule attempted to load GameFeatures.GameFeatureData absent from the game target and triggered a handled ensure.",
+      "resolution": "Make the fixture-only rule bIsEditorOnly=True; repeat package and runtime test; zero error lines."
+    }
+  ],
+  "limitations": [
+    "No Shipping build",
+    "No Unreal Automation suite",
+    "No multiplayer or user-input tests",
+    "No Araland game validation",
+    "One NVIDIA TSR driver warning; no driver changes"
+  ],
+  "source_sha256": {
+    "run-packaged.ps1": "fe54fbd8803eb4145210f4319f344a4b0d4b62ff5ee296ff22519578924c039a",
+    "StudioBuild.uproject": "61923f229a58ca48c982cfd80fd050238c15fbcef21ff7dbdc57a1ce9bc2430d",
+    "Config\\DefaultEngine.ini": "19e056cf5784ff6aabce7cda7a4821db9e1a62a78f27af30dbc3bf2d870042b5",
+    "Config\\DefaultGame.ini": "55b7c7f67537bc32090300a15d6f3a72c982289e8e3cc9cb345c088b5602e93a",
+    "Config\\DefaultInput.ini": "057cac3bcaee5ac375c8f34a31e632c0a0319c9a59763f44151028f594054536",
+    "Source\\StudioBuild.Target.cs": "f12b3b0aabc0b16c452a8560ca28fd5d3f16e4d7fc02fad9c0cbfa30684d358e",
+    "Source\\StudioBuildEditor.Target.cs": "cbda1378e3c2b45dca0395dbb1528c286eca94010e8857318c7fe9d312a45222",
+    "Source\\StudioBuild\\StudioBuild.Build.cs": "2252867a47068081ad0ec691b7c3e15f61d62202b353dc1660275f6d667feb2f",
+    "Source\\StudioBuild\\StudioBuild.cpp": "3bac53c815608b56075d5a0553ee8afa62004b5bd1b23e74a23af4f1613cf506",
+    "Source\\StudioBuild\\StudioBuildMode.cpp": "af4a588c6982e4b3ed05f8673d9680ece204f9359cab0af9e856bd052ad584f8",
+    "Source\\StudioBuild\\StudioBuildMode.h": "777321085d5c8ae41805f46df26a917c5661de004a52ed40687a4ef51d58fbac",
+    "Source\\StudioBuild\\StudioProbeActor.cpp": "aba4dba2cd661f87b07e30c30011b128953ac528850313c7659552f990c5eb67",
+    "Source\\StudioBuild\\StudioProbeActor.h": "eafe30a4e4f04b5215069ce0d9484a407a7ec8c87dc6be36f8127da61258c5b7"
+  },
+  "publication_sanitization": [
+    {
+      "path": "examples/cpp-smoke/Config/DefaultEngine.ini",
+      "change": "Removed automatically generated local Android File Server settings and its generated security token. Win64 game and MCP settings are unchanged."
+    }
+  ],
+  "published_source_sha256": {
+    "run-packaged.ps1": "fe54fbd8803eb4145210f4319f344a4b0d4b62ff5ee296ff22519578924c039a",
+    "StudioBuild.uproject": "61923f229a58ca48c982cfd80fd050238c15fbcef21ff7dbdc57a1ce9bc2430d",
+    "Config/DefaultEngine.ini": "c4c11be6756675e07e6c4a3f0c102693e6720faaffc10d2a738c311a8513573e",
+    "Config/DefaultGame.ini": "55b7c7f67537bc32090300a15d6f3a72c982289e8e3cc9cb345c088b5602e93a",
+    "Config/DefaultInput.ini": "057cac3bcaee5ac375c8f34a31e632c0a0319c9a59763f44151028f594054536",
+    "Source/StudioBuild.Target.cs": "f12b3b0aabc0b16c452a8560ca28fd5d3f16e4d7fc02fad9c0cbfa30684d358e",
+    "Source/StudioBuildEditor.Target.cs": "cbda1378e3c2b45dca0395dbb1528c286eca94010e8857318c7fe9d312a45222",
+    "Source/StudioBuild/StudioBuild.Build.cs": "2252867a47068081ad0ec691b7c3e15f61d62202b353dc1660275f6d667feb2f",
+    "Source/StudioBuild/StudioBuild.cpp": "3bac53c815608b56075d5a0553ee8afa62004b5bd1b23e74a23af4f1613cf506",
+    "Source/StudioBuild/StudioBuildMode.cpp": "af4a588c6982e4b3ed05f8673d9680ece204f9359cab0af9e856bd052ad584f8",
+    "Source/StudioBuild/StudioBuildMode.h": "777321085d5c8ae41805f46df26a917c5661de004a52ed40687a4ef51d58fbac",
+    "Source/StudioBuild/StudioProbeActor.cpp": "aba4dba2cd661f87b07e30c30011b128953ac528850313c7659552f990c5eb67",
+    "Source/StudioBuild/StudioProbeActor.h": "eafe30a4e4f04b5215069ce0d9484a407a7ec8c87dc6be36f8127da61258c5b7"
+  }
+}

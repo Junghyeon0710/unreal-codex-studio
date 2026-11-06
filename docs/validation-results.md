@@ -2,7 +2,7 @@
 
 Tested with Windows, Unreal Engine **5.8.4 / changelist 58902052** installed through
 Epic's distribution, Python 3.12.14, and Codex **0.167.0-alpha.3.2**.
-All live Unreal work used a new disposable StudioLab project, not an existing game.
+Live Unreal work used new disposable StudioLab and StudioBuild projects, not an existing game.
 
 | Check | Result | Evidence |
 |---|---|---|
@@ -19,13 +19,17 @@ All live Unreal work used a new disposable StudioLab project, not an existing ga
 | Native Codex MCP | Passed | [3 native calls](evidence/codex-runtime.json) |
 | Native Codex roles | Passed for 2 roles | cpp-engineer and qa-engineer start/stop IDs in evidence |
 | Binary patch hook | Passed after fix | Real apply_patch denied; probe file absent |
-| C++ engine compilation | Not run | Build planner inspected; no C++ module in fixture |
+| C++ engine compilation | Passed | Separate StudioBuild C++ fixture; editor DLL and game executable |
 | Unreal Automation suite | Not run | Python tests are a different layer |
 | Game-specific interactions / networking | Not run | Fixture is an empty Actor Blueprint |
-| UAT packaging / packaged startup | Not run | No packaged game claim |
+| UAT packaging / packaged startup | Passed | Win64 Development, D3D12, 90 ticks, exit 0, no error logs |
 | Other Unreal versions / operating systems | Not run for Unreal | Cross-platform CI covers Python tooling only |
 
 ## Native Codex execution
+
+Follow-up: [C++ build and packaged runtime verification](build-package-validation.md)
+records the separate source fixture, actual package execution, fixes and evidence.
+The original Blueprint-only MCP fixture remains a separate test.
 
 A separate copy of the repository was opened in a persisted Codex test session
 with workspace-write sandboxing. The exact disposable project was an additional

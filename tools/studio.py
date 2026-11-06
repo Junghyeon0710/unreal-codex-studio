@@ -131,13 +131,22 @@ def make_example(destination):
     p = dest / "StudioLab.uproject"
     p.write_text(json.dumps({"FileVersion": 3, "EngineAssociation": "5.8",
         "Category": "Tests", "Description": "Disposable official MCP studio fixture",
-        "Plugins": [{"Name": "ModelContextProtocol", "Enabled": True},
-                    {"Name": "AllToolsets", "Enabled": True}]}, indent=2) + "\n", encoding="utf-8")
+        "Plugins": [{"Name": "ModelContextProtocol", "Enabled": True, "TargetAllowList": ["Editor"]},
+                    {"Name": "AllToolsets", "Enabled": True, "TargetAllowList": ["Editor"]}]}, indent=2) + "\n", encoding="utf-8")
     config = dest / "Config"; config.mkdir()
     (config / "DefaultEngine.ini").write_text(
         "[/Script/EngineSettings.GameMapsSettings]\nEditorStartupMap=/Engine/Maps/Templates/Template_Default\n"
         "GameDefaultMap=/Engine/Maps/Templates/Template_Default\n\n"
         "[HTTPServer.Listeners]\nDefaultBindAddress=127.0.0.1\n", encoding="utf-8")
+    # AllToolsets loads GameFeatures in the editor/cooker. Its asset-manager rule
+    # must not load an editor-only dependency in the packaged game.
+    (config / "DefaultGame.ini").write_text(
+        "[/Script/Engine.AssetManagerSettings]\n"
+        '+PrimaryAssetTypesToScan=(PrimaryAssetType="GameFeatureData",'
+        'AssetBaseClass="/Script/GameFeatures.GameFeatureData",bHasBlueprintClasses=False,'
+        'bIsEditorOnly=True,Directories=(),SpecificAssets=(),'
+        'Rules=(Priority=-1,ChunkId=-1,bApplyRecursively=True,CookRule=AlwaysCook))\n',
+        encoding="utf-8")
     return {"project": str(p)}
 
 def command_plan(kind, engine, project, target=None, platform="Win64", configuration="Development",

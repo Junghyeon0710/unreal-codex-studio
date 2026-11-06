@@ -1,5 +1,17 @@
 # Contributing
 
+## Documentation language
+
+English is the canonical language for documentation, skills, roles, and CLI text.
+Korean is the only additional documentation language currently maintained.
+The Korean README lives at docs/readme/README_ko.md; other Korean translations
+live under docs/ko. Add reciprocal English/Korean links to translated documents.
+When updating a translated page, keep its Korean version in sync, including
+commands, validation scope, and limitations. Preserve technical identifiers and
+adjust relative links for the translation's location.
+
+## Development
+
 Keep workflows small and grounded in an actual Unreal task. Preserve user model,
 sandbox and authorization choices. Runtime scripts use Python 3.11+ standard
 library; development validation uses requirements-dev.txt.
