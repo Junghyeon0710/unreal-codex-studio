@@ -9,3 +9,9 @@ Binaries/
 DerivedDataCache/
 .vs/
 *.sln
+
+# Local door experiment: publish reports, not the test game or captured media.
+/examples/door-demo/
+/docs/media/door-demo/
+/docs/evidence/door-closed.png
+/docs/evidence/studio-door/qa-final.png

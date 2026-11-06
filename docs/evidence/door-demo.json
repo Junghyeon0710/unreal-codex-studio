@@ -1,0 +1,441 @@
+{
+  "date": "2026-11-06",
+  "engine": "5.8.4",
+  "platform": "Win64",
+  "configuration": "Development",
+  "host": "Codex desktop collaboration tools; actual separate worker sessions",
+  "participants": {
+    "implementer": "/root/door_implementer",
+    "reviewer": "/root/door_reviewer",
+    "coordinator": "/root"
+  },
+  "source_digest": "18c305383c43f00d526565edff8800cbd193a7f07b9266beacb8951da7c9e4b5",
+  "review": {
+    "digest": "18c305383c43f00d526565edff8800cbd193a7f07b9266beacb8951da7c9e4b5",
+    "verdict": "approve",
+    "summary": "Independent source review of the complete source-only StudioDoor fixture found no concrete actionable defects. Reviewed Pawn-filtered current overlap aggregation, component deduplication, destroyed actor validity, constant-speed hinge interpolation and reversal, the twelve in-engine assertion scenarios, build/configuration, evidence output and standalone limits. Recomputed scoped digest matches the submitted snapshot. This is source approval only: no C++ build, PIE, packaged gameplay or visual-capture result had been supplied to this reviewer at approval time; required runtime gates must still pass.",
+    "findings": []
+  },
+  "build": {
+    "status": "passed",
+    "exit_code": 0,
+    "seconds": 104.72
+  },
+  "official_mcp": {
+    "utc": "2026-11-06T07:41:17.545786+00:00",
+    "status": "passed",
+    "checks": [
+      "expected_project_binding",
+      "door_blueprint_created",
+      "blueprint_compiled",
+      "selected_asset_saved_and_read_back",
+      "pie_running",
+      "door_gameplay_assertions",
+      "pie_stopped"
+    ],
+    "asset": "/Game/StudioDoor/BP_ReviewedDoor_b0043bad",
+    "runtime": {
+      "status": "passed",
+      "run_id": "e00e214f6e0f4cf5835e73fdf061d7a9",
+      "rhi": "D3D12",
+      "is_editor": true,
+      "is_commandlet": false,
+      "game_world": true,
+      "capture_mode": false,
+      "screenshot_written": true,
+      "elapsed_seconds": 18.504959106445312,
+      "door_angle": 0,
+      "occupant_count": 0,
+      "checks": [
+        {
+          "name": "initial_closed",
+          "passed": true,
+          "seconds": 0.6043745875358582,
+          "angle": 0,
+          "occupants": 0
+        },
+        {
+          "name": "non_pawn_ignored",
+          "passed": true,
+          "seconds": 1.2007555961608887,
+          "angle": 0,
+          "occupants": 0
+        },
+        {
+          "name": "pawn_opens_door",
+          "passed": true,
+          "seconds": 4.901413440704346,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "component_exit_keeps_occupant",
+          "passed": true,
+          "seconds": 5.902706146240234,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "two_pawns_counted_once_each",
+          "passed": true,
+          "seconds": 6.955819129943848,
+          "angle": 90,
+          "occupants": 2
+        },
+        {
+          "name": "one_leaves_other_keeps_open",
+          "passed": true,
+          "seconds": 8.153968811035156,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "destroyed_last_occupant_closes",
+          "passed": true,
+          "seconds": 9.852906227111816,
+          "angle": 0,
+          "occupants": 0
+        },
+        {
+          "name": "next_pawn_reopens",
+          "passed": true,
+          "seconds": 11.50693416595459,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "reentry_begins_mid_close",
+          "passed": true,
+          "seconds": 12.251885414123535,
+          "angle": 49.7577018737793,
+          "occupants": 0
+        },
+        {
+          "name": "reversal_is_continuous",
+          "passed": true,
+          "seconds": 12.40261173248291,
+          "angle": 63.258174896240234,
+          "occupants": 1
+        },
+        {
+          "name": "reentry_reaches_open",
+          "passed": true,
+          "seconds": 13.603764533996582,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "last_pawn_leaves_closes",
+          "passed": true,
+          "seconds": 15.605497360229492,
+          "angle": 0,
+          "occupants": 0
+        }
+      ]
+    },
+    "events": [
+      {
+        "tool": "editor_toolset.toolsets.asset.AssetTools.read_file",
+        "result": "project challenge matched"
+      },
+      {
+        "tool": "EditorToolset.EditorAppToolset.IsPIERunning",
+        "result": false
+      },
+      {
+        "tool": "editor_toolset.toolsets.blueprint.BlueprintTools.create",
+        "result": {
+          "refPath": "/Game/StudioDoor/BP_ReviewedDoor_b0043bad.BP_ReviewedDoor_b0043bad"
+        }
+      },
+      {
+        "tool": "editor_toolset.toolsets.blueprint.BlueprintTools.compile_blueprint",
+        "result": null
+      },
+      {
+        "tool": "editor_toolset.toolsets.asset.AssetTools.save_assets",
+        "result": true
+      },
+      {
+        "tool": "editor_toolset.toolsets.asset.AssetTools.exists",
+        "result": true
+      },
+      {
+        "tool": "EditorToolset.EditorAppToolset.StartPIE",
+        "result": null
+      },
+      {
+        "tool": "EditorToolset.EditorAppToolset.IsPIERunning",
+        "result": true
+      },
+      {
+        "tool": "EditorToolset.EditorAppToolset.StopPIE",
+        "result": null
+      },
+      {
+        "tool": "EditorToolset.EditorAppToolset.IsPIERunning",
+        "result": false
+      }
+    ]
+  },
+  "package": {
+    "status": "passed",
+    "exit_code": 0,
+    "seconds": 206.77
+  },
+  "packaged_runtime": {
+    "status": "passed",
+    "exit_code": 0,
+    "seconds": 75.03,
+    "runtime": {
+      "status": "passed",
+      "run_id": "768d8162cfb94e8794fc5b7cf3cb76a6",
+      "rhi": "D3D12",
+      "is_editor": false,
+      "is_commandlet": false,
+      "game_world": true,
+      "capture_mode": false,
+      "screenshot_written": true,
+      "elapsed_seconds": 18.5013370513916,
+      "door_angle": 0,
+      "occupant_count": 0,
+      "checks": [
+        {
+          "name": "initial_closed",
+          "passed": true,
+          "seconds": 0.6597440242767334,
+          "angle": 0,
+          "occupants": 0
+        },
+        {
+          "name": "non_pawn_ignored",
+          "passed": true,
+          "seconds": 1.2026408910751343,
+          "angle": 0,
+          "occupants": 0
+        },
+        {
+          "name": "pawn_opens_door",
+          "passed": true,
+          "seconds": 4.901569366455078,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "component_exit_keeps_occupant",
+          "passed": true,
+          "seconds": 5.9046478271484375,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "two_pawns_counted_once_each",
+          "passed": true,
+          "seconds": 6.950165748596191,
+          "angle": 90,
+          "occupants": 2
+        },
+        {
+          "name": "one_leaves_other_keeps_open",
+          "passed": true,
+          "seconds": 8.156180381774902,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "destroyed_last_occupant_closes",
+          "passed": true,
+          "seconds": 9.853403091430664,
+          "angle": 0,
+          "occupants": 0
+        },
+        {
+          "name": "next_pawn_reopens",
+          "passed": true,
+          "seconds": 11.506826400756836,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "reentry_begins_mid_close",
+          "passed": true,
+          "seconds": 12.255413055419922,
+          "angle": 49.465965270996094,
+          "occupants": 0
+        },
+        {
+          "name": "reversal_is_continuous",
+          "passed": true,
+          "seconds": 12.40186595916748,
+          "angle": 62.54923629760742,
+          "occupants": 1
+        },
+        {
+          "name": "reentry_reaches_open",
+          "passed": true,
+          "seconds": 13.604458808898926,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "last_pawn_leaves_closes",
+          "passed": true,
+          "seconds": 15.601795196533203,
+          "angle": 0,
+          "occupants": 0
+        }
+      ]
+    },
+    "log_errors": [],
+    "log_warnings": [
+      "[2026.11.06-07.46.45:585][  0]LogD3D12RHI: Warning: TSR 16-bit VALU is disabled on NVIDIA due to known compiler bugs in drivers older than 610.00."
+    ],
+    "bootstrap_executable_sha256": "80abfab3bf230454fe88c02c3915e3f1108a96e7b36ea9ece3197b608e36fc57",
+    "hash_scope": "Top-level Windows/StudioDoor.exe launcher only; not a full-package hash"
+  },
+  "frame_capture": {
+    "status": "passed",
+    "exit_code": 0,
+    "seconds": 68.62,
+    "runtime": {
+      "status": "passed",
+      "run_id": "52ff883c4ebb4c7981076e18b40b3645",
+      "rhi": "D3D12",
+      "is_editor": false,
+      "is_commandlet": false,
+      "game_world": true,
+      "capture_mode": true,
+      "screenshot_written": false,
+      "elapsed_seconds": 18.50006103515625,
+      "door_angle": 0,
+      "occupant_count": 0,
+      "checks": [
+        {
+          "name": "initial_closed",
+          "passed": true,
+          "seconds": 0.6000000834465027,
+          "angle": 0,
+          "occupants": 0
+        },
+        {
+          "name": "non_pawn_ignored",
+          "passed": true,
+          "seconds": 1.2000001668930054,
+          "angle": 0,
+          "occupants": 0
+        },
+        {
+          "name": "pawn_opens_door",
+          "passed": true,
+          "seconds": 4.933330059051514,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "component_exit_keeps_occupant",
+          "passed": true,
+          "seconds": 5.933329105377197,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "two_pawns_counted_once_each",
+          "passed": true,
+          "seconds": 6.96666145324707,
+          "angle": 90,
+          "occupants": 2
+        },
+        {
+          "name": "one_leaves_other_keeps_open",
+          "passed": true,
+          "seconds": 8.166662216186523,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "destroyed_last_occupant_closes",
+          "passed": true,
+          "seconds": 9.866684913635254,
+          "angle": 0,
+          "occupants": 0
+        },
+        {
+          "name": "next_pawn_reopens",
+          "passed": true,
+          "seconds": 11.500040054321289,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "reentry_begins_mid_close",
+          "passed": true,
+          "seconds": 12.266716957092285,
+          "angle": 48,
+          "occupants": 0
+        },
+        {
+          "name": "reversal_is_continuous",
+          "passed": true,
+          "seconds": 12.400052070617676,
+          "angle": 60,
+          "occupants": 1
+        },
+        {
+          "name": "reentry_reaches_open",
+          "passed": true,
+          "seconds": 13.600068092346191,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "last_pawn_leaves_closes",
+          "passed": true,
+          "seconds": 15.60009479522705,
+          "angle": 0,
+          "occupants": 0
+        }
+      ]
+    },
+    "frame_count": 557
+  },
+  "source_sha256": {
+    "examples/door-demo/Config/DefaultEngine.ini": "7db26663c0d9379ad957024514f8d35014a302359cde56759f60356fcdc3191c",
+    "examples/door-demo/Config/DefaultGame.ini": "55b7c7f67537bc32090300a15d6f3a72c982289e8e3cc9cb345c088b5602e93a",
+    "examples/door-demo/Config/DefaultInput.ini": "057cac3bcaee5ac375c8f34a31e632c0a0319c9a59763f44151028f594054536",
+    "examples/door-demo/README.md": "b324dc6c4ebbe5f8270a1c773bc850750911a27f1efaf80589fbf2fd7b6eed81",
+    "examples/door-demo/Source/StudioDoor/StudioDoor.Build.cs": "410ded8672a66d9a2fbcc798e3279cf0bce977189c91b69ba7e5fc5ee197ce32",
+    "examples/door-demo/Source/StudioDoor/StudioDoor.cpp": "10236c01423fd8b70b8589f67c06166bd57db4832d99e07f962d73471ba75f87",
+    "examples/door-demo/Source/StudioDoor/StudioDoorActor.cpp": "87c9556af2caa3fba6001984d64277f44685df91238f7a4b5757800d03854582",
+    "examples/door-demo/Source/StudioDoor/StudioDoorActor.h": "f4593b54ed5165f24467f6b30869fcf4fa796a0cef9295c05b5fb0a38555cec0",
+    "examples/door-demo/Source/StudioDoor/StudioDoorHUD.cpp": "86a1ccee32e7a27a74cca0a4425f86f5534997302c1bda2d7b2d8531a0a7c3b8",
+    "examples/door-demo/Source/StudioDoor/StudioDoorHUD.h": "bfc2e2dd21dad4e7e723d96615ec42e1964f7654cafde760383888a20a534a0b",
+    "examples/door-demo/Source/StudioDoor/StudioDoorMode.cpp": "5e3d40fb1b9ba401452c978eca52f2c1c47864001335cd11da52a86ed80762e3",
+    "examples/door-demo/Source/StudioDoor/StudioDoorMode.h": "69c79867926ef85c9c16f86d075c0ddc24214607cb105d74749720eb7cd2c5de",
+    "examples/door-demo/Source/StudioDoor/StudioDoorPawn.cpp": "32373d1dd6bf95ca0ab9adac60026ad844fde9cc863a42f7ca15182447bf7b56",
+    "examples/door-demo/Source/StudioDoor/StudioDoorPawn.h": "bd25eba74f79a691461f9b9fa51ce6ee5c1b311bd554c992c0f66de8e336f96e",
+    "examples/door-demo/Source/StudioDoor.Target.cs": "76b7756910931aeb337e8aff53b84ba609ed0972a0cd20e4f3ceb57b9f15424c",
+    "examples/door-demo/Source/StudioDoorEditor.Target.cs": "e2f165298cbcece7542c0916298511ff4ae539c2b99a7854f2f7479e911d76da",
+    "examples/door-demo/StudioDoor.uproject": "5c564058653ca47e63a314a6add7413fe1f0352c7faf2085e86e037cce2133a1"
+  },
+  "gate": {
+    "ready": true,
+    "state": "complete",
+    "reasons": [],
+    "participants": {
+      "implementer": "/root/door_implementer",
+      "reviewer": "/root/door_reviewer",
+      "coordinator": "/root"
+    },
+    "round": 1,
+    "digest": "18c305383c43f00d526565edff8800cbd193a7f07b9266beacb8951da7c9e4b5"
+  },
+  "runtime_configuration_note": "Unreal Editor generated a local AndroidFileServerRuntimeSettings section in the copied fixture. That section is not in the published source. Runtime config is not claimed byte-identical to the source template; native C++ source hashes match.",
+  "limitations": [
+    "Standalone deterministic APawn movement; no manual keyboard/controller test",
+    "No networking, Shipping build, long playthrough or Unreal Automation suite",
+    "MCP creates/compiles/saves a Blueprint subclass; gameplay assertions exercise the native C++ door spawned by GameMode",
+    "Host workers were assigned implementation/review roles; no claim that all nine TOML roles ran",
+    "Frame capture uses fixed timestep 30 fps and actual engine output; it is separate from the normal packaged runtime test",
+    "No Araland files or assets changed"
+  ]
+}

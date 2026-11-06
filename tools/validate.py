@@ -28,16 +28,19 @@ def main():
             data = tomllib.loads(path.read_text(encoding="utf-8"))
             assert data["name"] == path.stem
             assert data["description"] and data["developer_instructions"]
-            assert "model" not in data and "sandbox_mode" not in data
+            assert data["model"] == ("gpt-6-astra" if path.stem == "technical-director" else "gpt-6.1-sol")
+            assert "sandbox_mode" not in data
         except (ValueError, KeyError, AssertionError) as exc:
             errors.append(str(path.relative_to(ROOT)) + ": " + repr(exc))
-    tomllib.loads((ROOT / ".codex/config.toml").read_text(encoding="utf-8"))
+    config = tomllib.loads((ROOT / ".codex/config.toml").read_text(encoding="utf-8"))
+    assert config["model"] == "gpt-6-astra"
+    assert {"code-implementer", "code-reviewer", "editor-engineer", "verification-engineer", "qa-engineer"} <= {p.stem for p in roles}
     json.loads((ROOT / ".codex/hooks.json").read_text(encoding="utf-8"))
     for folder in ["tools", "tests", ".codex/hooks"]:
         for path in (ROOT / folder).rglob("*.py"):
             ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
     assert len(skills) == 15, "Update manifest/docs when changing the skill inventory."
-    assert len(roles) == 9, "Update manifest/docs when changing the role inventory."
+    assert len(roles) == 13, "Update manifest/docs when changing the role inventory."
     print(json.dumps({"skills": len(skills), "roles": len(roles), "errors": errors}, indent=2))
     return bool(errors)
 

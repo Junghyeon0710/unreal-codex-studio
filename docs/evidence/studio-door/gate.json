@@ -1,0 +1,39 @@
+{
+  "ready": true,
+  "state": "complete",
+  "reasons": [],
+  "participants": {
+    "implementer": "/root/astra_director/sol_code",
+    "reviewer": "/root/astra_director/sol_review",
+    "coordinator": "/root/astra_director"
+  },
+  "round": 2,
+  "digest": "fc2de0a948b9cf3731201cbee7c7d5d11ade005d6f6c0988c3bf8f8ae2a51189",
+  "model_attribution": {
+    "verification": {
+      "id": "/root/astra_director/sol_verification",
+      "model": "gpt-6.1-sol"
+    },
+    "coordinator": {
+      "id": "/root/astra_director",
+      "model": "gpt-6-astra"
+    },
+    "qa": {
+      "id": "/root/astra_director/sol_qa",
+      "model": "gpt-6.1-sol"
+    },
+    "reviewer": {
+      "id": "/root/astra_director/sol_review",
+      "model": "gpt-6.1-sol"
+    },
+    "implementer": {
+      "id": "/root/astra_director/sol_code",
+      "model": "gpt-6.1-sol"
+    },
+    "editor": {
+      "id": "/root/astra_director/sol_editor",
+      "model": "gpt-6.1-sol"
+    }
+  },
+  "exit_code": 0
+}

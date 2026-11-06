@@ -1,0 +1,15 @@
+{
+  "verdict": "request_changes",
+  "summary": "The five-specialist pipeline and routing satisfy the reviewed source contract, including the upstream evidence freshness repair. One fixture geometry regression remains.",
+  "findings": [
+    {
+      "evidence": "Mesh is the actor root (line 43). SetWorldScale3D(Scale) at line 48 sets its requested dimensions, but SetActorTransform at line 50 immediately replaces root scale with DoorTransform.GetScale3D(), omitting Scale. Preserve the requested Scale multiplied by the door scale, or apply the requested mesh scaling after setting the actor transform.",
+      "consequence": "The requested per-box dimensions are overwritten, so floor, walls, jambs, markers and non-pawn become equally sized cubes rather than the intended validation scene. This degrades the visual evidence and changes the non-pawn fixture geometry.",
+      "severity": "P2",
+      "location": "examples/door-demo/Source/StudioDoor/StudioDoorMode.cpp:50",
+      "trigger": "Run the fixture with either the identity native fallback or a placed door; AddBox is used for every set mesh and the ignored non-pawn.",
+      "id": "R1"
+    }
+  ],
+  "digest": "0e3fd7137183bdc2e758da0dd9c1a13f9cf7cb3adc228ee333f13941f45feffd"
+}

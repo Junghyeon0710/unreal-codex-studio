@@ -1,0 +1,44 @@
+{
+  "digest": "18c305383c43f00d526565edff8800cbd193a7f07b9266beacb8951da7c9e4b5",
+  "verdict": "approve",
+  "summary": "Independent inspection supports the source review, Editor build/PIE results, successful Win64 Development packaging, two packaged gameplay runs with twelve passing assertions each, and rendered frame capture. No actionable implementation or evidence defect found in the declared standalone scope.",
+  "findings": [],
+  "evidence_review": {
+    "package": {
+      "paths": [
+        "door-session/package-reviewed.json",
+        "door-session/package-reviewed.log"
+      ],
+      "observation": "Raw UAT log records completed build/cook/stage/archive, BUILD SUCCESSFUL and AutomationTool ExitCode=0. Wrapper duration is 206.77 seconds."
+    },
+    "packaged_runtime": {
+      "paths": [
+        "door-session/runtime-summary.json",
+        "door-session/runtime-768d8162cfb94e8794fc5b7cf3cb76a6/result.json",
+        "door-session/runtime-768d8162cfb94e8794fc5b7cf3cb76a6/runtime.log"
+      ],
+      "observation": "Independently parsed original result JSON and confirmed equality with summary. Run identity agrees with raw command line and DOOR_DEMO_BEGIN/END. Twelve distinct named assertions pass in non-editor, non-commandlet D3D12 game world; final angle and occupants are zero. Summary records exit 0, and raw log confirms passed=1 written=1 checks=12/12. Mid-close reentry progresses from 49.47 to 62.55 degrees. No Error/Fatal/Ensure lines found in the inspected runtime log; one NVIDIA TSR 16-bit VALU fallback warning remains."
+    },
+    "capture": {
+      "paths": [
+        "door-session/capture-summary.json",
+        "door-session/capture-52ff883c4ebb4c7981076e18b40b3645/result.json",
+        "door-session/capture-52ff883c4ebb4c7981076e18b40b3645/runtime.log",
+        "door-session/capture-52ff883c4ebb4c7981076e18b40b3645/frames",
+        "door-session/capture-contact.jpg"
+      ],
+      "observation": "Original result equals summary; raw command line uses DoorCapture, DumpMovie, fixed timestep and fps=30. Twelve assertions pass and summary records exit 0. Independently counted 557 PNGs from MovieFrame00000.png through MovieFrame00556.png. Viewed contact sheet and original frames 357, 367 and 377: closing HUD angles 81 then 51 degrees with no occupant, followed by 75 degrees with a returned Pawn. Images show visible doorway, Pawn proxies and readable state HUD. The capture run intentionally does not write the separate normal screenshot; its numbered frames provide rendered evidence."
+    },
+    "gates": {
+      "observation": "Reviewer independently ran both gates with current files and evidence: door loop complete at round 1 for the supplied digest; workflow loop complete at round 2 for c9f846b1d6c8f6fdec118598420866f2b8d6f1833bc3eee02a5e7ce63a0c82e8. Both returned exit 0 and no reasons."
+    }
+  },
+  "limitations": [
+    "This is a standalone scripted fixture. It moves actual APawn actors without swept movement and tests actual overlap cache membership and hinge state; it does not establish player input, navigation, obstruction handling, replication, multiplayer, save/load or broad production-game behavior.",
+    "The runtime editor appended an AndroidFileServer settings section locally. Published fixture configuration remains clean; do not describe the full runtime configuration as byte-identical to reviewed source. Reviewed C++ sources and the initial build source manifest matched.",
+    "The Blueprint subclass compile/save smoke result is separate from the native door actor spawned for gameplay.",
+    "Frame capture is a fixed-timestep rendering run, not a real-time performance benchmark. The reviewer sampled original frames and the contact sheet rather than manually watching every frame.",
+    "The executable_sha256 recorded by run_game.py hashes the top-level bootstrap executable; do not describe it as a hash of all packaged game binaries, assets or the package.",
+    "Earlier editor startup automation errors were not door assertion failures; this approval covers the named door checks and does not certify all engine automation tests."
+  ]
+}

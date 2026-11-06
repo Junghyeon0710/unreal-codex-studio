@@ -1,0 +1,6 @@
+{
+  "verdict": "approve",
+  "findings": [],
+  "digest": "fc2de0a948b9cf3731201cbee7c7d5d11ade005d6f6c0988c3bf8f8ae2a51189",
+  "summary": "R1 closed: AddBox now applies requested per-box dimensions multiplied by selected door scale in its final actor transform, preserving fixture geometry for identity and transformed doors. Independently checked the repair against surrounding code, confirmed Mode.cpp is the only changed snapshot file, and verified every declared snapshot file hash. No unresolved source findings. Build, editor and gameplay evidence remain separate required specialist stages."
+}

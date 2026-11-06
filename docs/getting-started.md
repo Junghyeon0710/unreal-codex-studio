@@ -11,7 +11,8 @@ Use this repository as a separate Codex workspace. Point commands at your actual
 4. Enable official Unreal MCP and All Toolsets in the intended Unreal project and
    restart. Start the server as described in docs/official-mcp.md.
 5. Run doctor with the actual engine, project and local endpoint.
-6. Run connect and reload Codex. Use $ue-start to begin.
+6. Run connect and reload Codex. Describe the work normally; skill names are
+   optional. Use $ue-start only when you want to select that workflow explicitly.
 
 For source work in a game outside this workspace, add that game directory to your
 Codex host's authorized workspace roots. Do not disable the sandbox or copy its
@@ -21,6 +22,15 @@ process and still require the correct project and user scope.
 The scripts need no pip packages. Contributor validation uses PyYAML:
 `python -m pip install -r requirements-dev.txt`.
 Run `python tools/validate.py` and `python -m unittest discover -s tests -v`.
+
+## Choose work to fit the request
+
+The Astra manager chooses the smallest sufficient roster, scopes and useful checks
+without asking routine staffing questions. A narrow task may use one expert;
+explanations/read-only answers may need no delegation or journal. Editor work needs
+one actual owner; code review, builds, packaging and gameplay QA are selected only
+when meaningful. See [adaptive management](feature-loop.md). Historical five-worker
+examples are optional integration evidence, not the default team size.
 
 ## Builds and tests
 

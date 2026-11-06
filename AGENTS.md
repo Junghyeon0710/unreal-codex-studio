@@ -23,11 +23,57 @@ an open editor or replace a user's engine/model/approval settings.
 - Preserve existing work. Do not save every dirty asset, overwrite maps, reset Git,
   or terminate unrelated editors. Honor the user's existing authorization without
   adding repetitive approval gates.
-- Models, sandbox and approval settings inherit from the host. Do not weaken them.
+- The requested root/technical-director default is gpt-6-astra; specialist roles
+  explicitly use gpt-6.1-sol. This does not change an existing host chat model.
+  Preserve sandbox, approval policy and explicit user choices.
 - Follow docs/verification.md: instructions loaded, source checks, engine compile,
   Blueprint compile/save, PIE, gameplay and packaged startup are separate results.
 - Send short progress updates. Report what changed, actual evidence and remaining
   limitations. Missing tools or SDKs are not passes.
+
+## Natural-language requests
+
+Users can describe work in ordinary language, including Korean, without naming a
+skill or role. Select and read the relevant .agents/skills/*/SKILL.md from the
+request's intent; do not ask the user to repeat it with a dollar-prefixed command.
+Use the smallest applicable workflow, and preserve an explicit skill choice.
+
+| Requested work | Relevant workflow |
+|---|---|
+| Start work or understand the project | ue-start / ue-project-scan |
+| Add gameplay behavior | ue-feature, then the needed C++ / Blueprint / UI skills |
+| Diagnose a broken build or editor operation | ue-diagnose; ue-build only if a build is needed |
+| Edit a widget, Blueprint, or data asset | ue-ui / ue-blueprint / ue-data |
+| Review changes | ue-review |
+| Verify behavior in the editor | ue-pie-check / ue-test |
+| Produce or check a packaged game | ue-package / ue-package-smoke |
+| Investigate the editor connection | ue-doctor |
+
+The Astra manager selects the smallest sufficient roster for each task, using
+actual scope, dependencies, risk and meaningful checks. Decide routine staffing
+without asking the user. A narrow task may use one expert; explanations/read-only
+answers may be handled directly without delegation or a journal. Add or reassign
+workers when findings justify it. See docs/feature-loop.md for adaptive planning.
+
+Use actual host calls for selected workers; files/journals do not launch agents.
+Record real IDs/model attribution when tracking a run. Never invent workers or
+claim independent review by the author. Select an independent reviewer when useful,
+requested or claimed; only selected review and verification stages are required.
+Editor specialists are needed only for actual editor/asset work; build, packaging
+and gameplay QA checks are included only when meaningful for the task. One actual
+owner exclusively controls all official MCP calls (including reads), binary assets
+and PIE. Preserve safety and project binding without imposing an editor stage on
+source-only work.
+
+The manager may use tools/studio_pipeline.py for multi-step tracked work, selecting
+participants/stages/checks and recording reasoned plan changes. Previous failed or
+unrun checks remain in history; changed acceptance is not a retroactive pass. Route
+findings to the responsible author, re-review when selected, and bound repairs
+(three cycles by default for tracked tasks). Complete only the selected scope with
+current evidence. Missing tools/delegation remain explicit limitations. Do not
+expand review-only, explanation or planning requests into implementation. Honor
+existing user authorization and explicit choices. Historical five-worker examples
+are evidence of those runs, not a mandatory roster for every new request.
 
 ## Commands
 

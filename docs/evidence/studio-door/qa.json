@@ -1,0 +1,199 @@
+{
+  "run_id": "fc4315d66ff74af9b5bfdf7c6ad06ec3",
+  "utc": "2026-11-06T08:34:06.705751+00:00",
+  "exit_code": 0,
+  "seconds": 69.51500000013039,
+  "source_digest": "fc2de0a948b9cf3731201cbee7c7d5d11ade005d6f6c0988c3bf8f8ae2a51189",
+  "source_identity_basis": "director supplied technical stage identity; current scenario source independently inspected",
+  "package_manifest_sha256": "1180679ffd7ac3385759a806e8dc8fc8dd37f93cdf7e064c60f027be6b74e01b",
+  "package_inventory_equal": false,
+  "original_package_content_equal": true,
+  "runtime_generated_added_files": {
+    "Windows/Engine/Saved/Config/Windows/Manifest.ini": {
+      "bytes": 25,
+      "sha256": "531bfb7088f544a87ff1268a69a3648dc0648ba49aaca9c3c67d4c4dcf87f088"
+    },
+    "Windows/StudioDoor/Saved/Config/CrashReportClient/UECC-Windows-58EB67624ED95A98E34647A4D38D6B56/CrashReportClient.ini": {
+      "bytes": 239,
+      "sha256": "ce69d7e7bbd1a64729bd4d5724f3c1efc47c6c3d555da9d2c6ad741eddc3d893"
+    },
+    "Windows/StudioDoor/Saved/Config/Windows/GameUserSettings.ini": {
+      "bytes": 1378,
+      "sha256": "25034567f71ecec90a640fa803a6bb0292ec483021905251ec22f55c8b4aa91b"
+    }
+  },
+  "package_file_count": 51,
+  "payload_sha256": "910c33e9f75ce14d4ec10a28ceb5ecacf23e86ef7d16b257986084ecdb66f651",
+  "runtime": {
+    "status": "passed",
+    "run_id": "fc4315d66ff74af9b5bfdf7c6ad06ec3",
+    "map_package": "/Game/StudioDoor/StudioDoorValidation",
+    "door_selection": "level_placed",
+    "door_class": "/Game/StudioDoor/BP_StudioDoor.BP_StudioDoor_C",
+    "door_actor_path": "/Game/StudioDoor/StudioDoorValidation.StudioDoorValidation:PersistentLevel.BP_StudioDoor_C_0",
+    "door_origin": "X=0.000 Y=0.000 Z=0.000",
+    "door_is_blueprint": true,
+    "rhi": "D3D12",
+    "is_editor": false,
+    "is_commandlet": false,
+    "game_world": true,
+    "capture_mode": false,
+    "screenshot_written": true,
+    "elapsed_seconds": 18.503986358642578,
+    "door_angle": 0,
+    "occupant_count": 0,
+    "checks": [
+      {
+        "name": "initial_closed",
+        "passed": true,
+        "seconds": 0.805803120136261,
+        "angle": 0,
+        "occupants": 0
+      },
+      {
+        "name": "non_pawn_ignored",
+        "passed": true,
+        "seconds": 1.2050395011901855,
+        "angle": 0,
+        "occupants": 0
+      },
+      {
+        "name": "pawn_opens_door",
+        "passed": true,
+        "seconds": 4.90342903137207,
+        "angle": 90,
+        "occupants": 1
+      },
+      {
+        "name": "component_exit_keeps_occupant",
+        "passed": true,
+        "seconds": 5.905580997467041,
+        "angle": 90,
+        "occupants": 1
+      },
+      {
+        "name": "two_pawns_counted_once_each",
+        "passed": true,
+        "seconds": 6.954309463500977,
+        "angle": 90,
+        "occupants": 2
+      },
+      {
+        "name": "one_leaves_other_keeps_open",
+        "passed": true,
+        "seconds": 8.15234661102295,
+        "angle": 90,
+        "occupants": 1
+      },
+      {
+        "name": "destroyed_last_occupant_closes",
+        "passed": true,
+        "seconds": 9.850630760192871,
+        "angle": 0,
+        "occupants": 0
+      },
+      {
+        "name": "opposite_side_pawn_reopens",
+        "passed": true,
+        "seconds": 11.501134872436523,
+        "angle": 90,
+        "occupants": 1
+      },
+      {
+        "name": "reentry_begins_mid_close",
+        "passed": true,
+        "seconds": 12.251879692077637,
+        "angle": 49.648162841796875,
+        "occupants": 0
+      },
+      {
+        "name": "reversal_is_continuous",
+        "passed": true,
+        "seconds": 12.404182434082031,
+        "angle": 63.554901123046875,
+        "occupants": 1
+      },
+      {
+        "name": "reentry_reaches_open",
+        "passed": true,
+        "seconds": 13.602326393127441,
+        "angle": 90,
+        "occupants": 1
+      },
+      {
+        "name": "last_pawn_leaves_closes",
+        "passed": true,
+        "seconds": 15.605353355407715,
+        "angle": 0,
+        "occupants": 0
+      }
+    ]
+  },
+  "independent_validations": {
+    "initial": true,
+    "nonpawn": true,
+    "one_pawn": true,
+    "component_exit": true,
+    "two_pawns": true,
+    "one_exits": true,
+    "destroyed_last": true,
+    "opposite_reopen": true,
+    "midclose": true,
+    "reversal": true,
+    "reopened": true,
+    "last_exit": true,
+    "exit": true,
+    "fresh_id": true,
+    "map": true,
+    "blueprint": true,
+    "packaged": true,
+    "renderer": true,
+    "screenshot": true,
+    "no_errors": true,
+    "ordered": true,
+    "final_empty": true
+  },
+  "log_errors": [],
+  "log_warnings": [
+    "LogSsl: Warning: Unable to open ROOT certificate store. TLS may not work.",
+    "[2026.11.06-08.32.58:561][  0]LogD3D12RHI: Warning: TSR 16-bit VALU is disabled on NVIDIA due to known compiler bugs in drivers older than 610.00."
+  ],
+  "visual_review": {
+    "status": "passed",
+    "method": "Personally opened fresh result.png via view_image",
+    "observations": [
+      "Closed dark wood door centered within frame; side walls, threshold and floor approach markers visible.",
+      "Foreground and opposite-side pawn shapes and ignored cube rendered with lighting/shadows.",
+      "Top stage HUD and bottom Angle 0 deg / Occupants 0 / Checks 12 / 12 readable; no visible clipping or missing geometry in this static view."
+    ],
+    "limits": "Only final closed frame inspected; does not validate opening motion aesthetics or player traversal."
+  },
+  "status": "passed",
+  "limitations": [
+    "Scripted pawn transforms, no manual player input, traversal collision, networking or prolonged playthrough.",
+    "Final screenshot does not establish visual motion continuity."
+  ],
+  "scenario_relationship_evidence": {
+    "opposite_side": "Source independently read: PawnA uses positive door-local X 420->30; PawnC uses negative X -450->-30 transformed by DoorTransform. Closed state at 9.8506s (0 degrees, 0 occupants) precedes opposite-side reopening at 11.5011s (90 degrees, 1 occupant).",
+    "reversal": "49.6482 degrees at 12.2519s while empty ->63.5549 degrees at 12.4042s with 1 occupant ->90 degrees at 13.6023s. Sample delta 13.9067 degrees; sampled continuity relationship passed, per-frame visual continuity unverified."
+  },
+  "player_facing_defects": [],
+  "observations": [
+    "Natural exit code 0 at 69.515 seconds wall time; scripted world scenario 18.504 seconds, additional teardown time observed.",
+    "SSL root certificate warning and GPU TSR driver fallback warning did not prevent this offline rendered scenario.",
+    "First inventory gate stopped before launch due to three prior runtime-generated Saved config additions. All 48 original manifest entries and payload hashes matched; additions retained and recorded."
+  ],
+  "schema": 1,
+  "stage": "independent_gameplay_qa",
+  "attribution": {
+    "session_id": "/root/astra_director/sol_qa",
+    "model": "gpt-6.1-sol"
+  },
+  "original_manifest_file_count": 48,
+  "screenshot": "qa-final.png",
+  "evidence_hashes": {
+    "result.json": "1d0598b6ba32c42d7c7edba89ecfce9029694f4e21d0b09752ea3b13ea79aacd",
+    "runtime.log": "1876e2fd7ffc7e7ad8c735434f1bd5fa5b693320da3af096fbe9efb9d335420c",
+    "result.png": "104772889ce93a59c4a1233d2b3b9a5b977972ebe0e35a216a86363cb5d8c343"
+  }
+}

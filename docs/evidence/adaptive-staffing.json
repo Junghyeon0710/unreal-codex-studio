@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "scope": "Adaptive staffing tools/policy only; no new engine/editor/package/gameplay tests",
+  "utc": "2026-11-06T08:51:46.355790+00:00",
+  "unit_test_count": 44,
+  "validated_skills": 15,
+  "validated_roles": 13,
+  "results": {
+    "toolkit-tests": {
+      "exit_code": 0,
+      "status": "passed"
+    },
+    "validator": {
+      "exit_code": 0,
+      "status": "passed"
+    },
+    "skill-quick-checks": {
+      "status": "passed",
+      "checks": 3
+    },
+    "local-links": {
+      "checked": 58,
+      "errors": [],
+      "status": "passed"
+    }
+  },
+  "skill_checks": [
+    {
+      "skill": "ue-feature",
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    },
+    {
+      "skill": "ue-start",
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    },
+    {
+      "skill": "ue-review",
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    }
+  ],
+  "independent_review": {
+    "summary": "Independently reviewed the adaptive gate, all nine adaptive regression tests, historical strict-profile dispatch, current policy/routing/English and Korean README changes, and historical-evidence caveats. No unresolved actionable findings. Selected stages and checks replace the fixed roster, independent review is optional and distinct when selected, review-only coordinator baselines work, dependency reruns invalidate dependent evidence, plan revisions require fresh signoff while retaining history, and editor work remains exclusive. Independently reran all 44 tests successfully and configuration validation reported 15 skills, 13 roles, zero errors. Recomputed scoped digest exactly matches this report. No engine/editor/gameplay checks were selected or performed for this source-policy update.",
+    "findings": [],
+    "verdict": "approve",
+    "digest": "529e3b129baabddeff4e807891c969d84d176e3d221e85bfa58c26b8bc32111f"
+  },
+  "gate": {
+    "ready": true,
+    "state": "complete",
+    "reasons": [],
+    "participants": {
+      "implementer": "/root/astra_director/sol_code",
+      "reviewer": "/root/astra_director/sol_review",
+      "coordinator": "/root/astra_director"
+    },
+    "round": 1,
+    "digest": "529e3b129baabddeff4e807891c969d84d176e3d221e85bfa58c26b8bc32111f"
+  },
+  "note": "Historical source-policy snapshot result before publication-only documentation edits. Raw logs remain local. This is not an engine test."
+}

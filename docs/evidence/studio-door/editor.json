@@ -1,0 +1,251 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "source_digest": "fc2de0a948b9cf3731201cbee7c7d5d11ade005d6f6c0988c3bf8f8ae2a51189",
+  "attribution": {
+    "session_id": "/root/astra_director/sol_editor",
+    "model": "gpt-6.1-sol"
+  },
+  "timestamp_utc": "2026-11-06T08:23:47.447465+00:00",
+  "project_name": "StudioDoor",
+  "project_binding": "verified",
+  "asset": "/Game/StudioDoor/BP_StudioDoor",
+  "map": "/Game/StudioDoor/StudioDoorValidation",
+  "parent_class": "/Script/StudioDoor.StudioDoorActor",
+  "placed_door_count": 1,
+  "checks": [
+    "blueprint_compiled_saved",
+    "map_created_saved",
+    "exactly_one_placed_door",
+    "pie_running",
+    "gameplay_12_assertions_passed",
+    "pie_stopped",
+    "editor_closed_custody_released"
+  ],
+  "official_mcp_actions": [
+    {
+      "tool": "editor_toolset.toolsets.asset.AssetTools.read_file",
+      "result": "project challenge matched"
+    },
+    {
+      "tool": "EditorToolset.EditorAppToolset.IsPIERunning",
+      "result": false
+    },
+    {
+      "tool": "editor_toolset.toolsets.blueprint.BlueprintTools.get_parent",
+      "result": {
+        "refPath": "/Script/StudioDoor.StudioDoorActor"
+      }
+    },
+    {
+      "tool": "editor_toolset.toolsets.blueprint.BlueprintTools.compile_blueprint",
+      "result": null
+    },
+    {
+      "tool": "editor_toolset.toolsets.scene.SceneTools.get_current_level",
+      "result": "/Game/StudioDoor/StudioDoorValidation"
+    },
+    {
+      "tool": "editor_toolset.toolsets.scene.SceneTools.add_to_scene_from_asset",
+      "result": {
+        "refPath": "/Game/StudioDoor/StudioDoorValidation.StudioDoorValidation:PersistentLevel.BP_StudioDoor_C_0"
+      }
+    },
+    {
+      "tool": "editor_toolset.toolsets.scene.SceneTools.find_actors",
+      "result": [
+        {
+          "refPath": "/Game/StudioDoor/StudioDoorValidation.StudioDoorValidation:PersistentLevel.BP_StudioDoor_C_0"
+        }
+      ]
+    },
+    {
+      "tool": "editor_toolset.toolsets.asset.AssetTools.save_assets",
+      "result": true
+    },
+    {
+      "tool": "EditorToolset.EditorAppToolset.StartPIE",
+      "result": null
+    },
+    {
+      "tool": "EditorToolset.EditorAppToolset.IsPIERunning",
+      "result": true
+    },
+    {
+      "tool": "editor_toolset.toolsets.asset.AssetTools.read_file",
+      "result": "project challenge matched"
+    },
+    {
+      "tool": "EditorToolset.EditorAppToolset.IsPIERunning",
+      "result": true
+    },
+    {
+      "tool": "EditorToolset.EditorAppToolset.StopPIE",
+      "result": null
+    },
+    {
+      "tool": "EditorToolset.EditorAppToolset.IsPIERunning",
+      "result": false
+    }
+  ],
+  "runtime_config_changes": [
+    {
+      "key": "GameDefaultMap",
+      "before": "/Engine/Maps/Entry",
+      "after": "/Game/StudioDoor/StudioDoorValidation"
+    },
+    {
+      "key": "EditorStartupMap",
+      "before": "/Engine/Maps/Entry",
+      "after": "/Game/StudioDoor/StudioDoorValidation"
+    }
+  ],
+  "pie_runtime": {
+    "status": "passed",
+    "run_id": "36f4decc51904200a16df1c76155977a",
+    "map_package": "/Game/StudioDoor/UEDPIE_0_StudioDoorValidation",
+    "door_selection": "level_placed",
+    "door_class": "/Game/StudioDoor/BP_StudioDoor.BP_StudioDoor_C",
+    "door_actor_path": "/Game/StudioDoor/UEDPIE_0_StudioDoorValidation.StudioDoorValidation:PersistentLevel.BP_StudioDoor_C_0",
+    "door_origin": "X=0.000 Y=0.000 Z=0.000",
+    "door_is_blueprint": true,
+    "rhi": "D3D12",
+    "is_editor": true,
+    "is_commandlet": false,
+    "game_world": true,
+    "capture_mode": false,
+    "screenshot_written": true,
+    "elapsed_seconds": 18.505088806152344,
+    "door_angle": 0,
+    "occupant_count": 0,
+    "checks": [
+      {
+        "name": "initial_closed",
+        "passed": true,
+        "seconds": 0.7669925689697266,
+        "angle": 0,
+        "occupants": 0
+      },
+      {
+        "name": "non_pawn_ignored",
+        "passed": true,
+        "seconds": 1.2079291343688965,
+        "angle": 0,
+        "occupants": 0
+      },
+      {
+        "name": "pawn_opens_door",
+        "passed": true,
+        "seconds": 4.907166481018066,
+        "angle": 90,
+        "occupants": 1
+      },
+      {
+        "name": "component_exit_keeps_occupant",
+        "passed": true,
+        "seconds": 5.904049396514893,
+        "angle": 90,
+        "occupants": 1
+      },
+      {
+        "name": "two_pawns_counted_once_each",
+        "passed": true,
+        "seconds": 6.954620838165283,
+        "angle": 90,
+        "occupants": 2
+      },
+      {
+        "name": "one_leaves_other_keeps_open",
+        "passed": true,
+        "seconds": 8.161689758300781,
+        "angle": 90,
+        "occupants": 1
+      },
+      {
+        "name": "destroyed_last_occupant_closes",
+        "passed": true,
+        "seconds": 9.856779098510742,
+        "angle": 0,
+        "occupants": 0
+      },
+      {
+        "name": "opposite_side_pawn_reopens",
+        "passed": true,
+        "seconds": 11.506341934204102,
+        "angle": 90,
+        "occupants": 1
+      },
+      {
+        "name": "reentry_begins_mid_close",
+        "passed": true,
+        "seconds": 12.253557205200195,
+        "angle": 49.64519500732422,
+        "occupants": 0
+      },
+      {
+        "name": "reversal_is_continuous",
+        "passed": true,
+        "seconds": 12.405200958251953,
+        "angle": 63.31246566772461,
+        "occupants": 1
+      },
+      {
+        "name": "reentry_reaches_open",
+        "passed": true,
+        "seconds": 13.604455947875977,
+        "angle": 90,
+        "occupants": 1
+      },
+      {
+        "name": "last_pawn_leaves_closes",
+        "passed": true,
+        "seconds": 15.6021728515625,
+        "angle": 0,
+        "occupants": 0
+      }
+    ]
+  },
+  "recoverable_attempts": [
+    {
+      "result": "failed",
+      "reason": "No writable default DDC nodes; retried with DDC-ForceMemoryCache"
+    },
+    {
+      "result": "failed",
+      "reason": "Dirty startup Entry prevented official load_level; task-owned process stopped after official window close did not exit"
+    },
+    {
+      "result": "failed",
+      "reason": "Duplicated map had not yet been saved; corrected with explicit save and verified umap before restart"
+    }
+  ],
+  "cleanup": {
+    "pie_stopped": true,
+    "custody_released": true,
+    "exited_gracefully": true
+  },
+  "saved_binary_inventory": {
+    "observed_utc": "2026-11-06T08:28:37.475605+00:00",
+    "files": [
+      {
+        "project_relative_path": "Content/StudioDoor/BP_StudioDoor.uasset",
+        "bytes": 34937,
+        "sha256": "35f17ff2103c9dda870645e06bcd576be980db99df541648ad2ea99eee1e8494"
+      },
+      {
+        "project_relative_path": "Content/StudioDoor/StudioDoorValidation.umap",
+        "bytes": 51802,
+        "sha256": "4496a656b94c80ccc2bd72bba9e514cfd497074ed8f88b9d6e01b290e42758ea"
+      }
+    ],
+    "note": "Hashes observed after saved editor stage; no binaries copied to repository. Packaging inventory must independently compare these bytes."
+  },
+  "limitations": [
+    "Editor pass is not final packaged verification or independent QA.",
+    "Identity-transform placed BP tested; translated/scaled placement not established.",
+    "Positive PIE does not runtime-validate duplicate-door rejection or native fallback."
+  ],
+  "sanitization": "Whitelisted fields only; no absolute local paths, full configuration, credentials, tokens or binaries.",
+  "stage": "editor",
+  "completion_note": "Stage-specific result; consult the current report and final gate for pipeline completion."
+}

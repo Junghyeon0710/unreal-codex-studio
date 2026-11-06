@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "purpose": "Sanitized evidence-consistency summary; attribution is not authentication. Raw journal retained unchanged.",
+  "source_root": "repository root",
+  "scopes": [
+    ".agents",
+    ".codex",
+    "AGENTS.md",
+    "README.md",
+    "docs/feature-loop.md",
+    "docs/official-mcp.md",
+    "examples/door-demo",
+    "tests/test_review_loop.py",
+    "tests/test_studio.py",
+    "tests/test_studio_pipeline.py",
+    "tools/live_smoke.py",
+    "tools/mcp_client.py",
+    "tools/review_loop.py",
+    "tools/studio.py",
+    "tools/studio_pipeline.py",
+    "tools/validate.py"
+  ],
+  "participants": {
+    "verification": {
+      "id": "/root/astra_director/sol_verification",
+      "model": "gpt-6.1-sol"
+    },
+    "coordinator": {
+      "id": "/root/astra_director",
+      "model": "gpt-6-astra"
+    },
+    "qa": {
+      "id": "/root/astra_director/sol_qa",
+      "model": "gpt-6.1-sol"
+    },
+    "reviewer": {
+      "id": "/root/astra_director/sol_review",
+      "model": "gpt-6.1-sol"
+    },
+    "implementer": {
+      "id": "/root/astra_director/sol_code",
+      "model": "gpt-6.1-sol"
+    },
+    "editor": {
+      "id": "/root/astra_director/sol_editor",
+      "model": "gpt-6.1-sol"
+    }
+  },
+  "max_repairs": 3,
+  "criteria": [
+    "Astra delegates five distinct Sol specialists with current independent approval and exclusive editor custody",
+    "Placed BP door in saved map passes fresh editor, technical verification and independent QA"
+  ],
+  "required_checks": [
+    "studio-editor",
+    "studio-qa",
+    "studio-verification"
+  ],
+  "rounds": [
+    {
+      "number": 1,
+      "source_digest": "0e3fd7137183bdc2e758da0dd9c1a13f9cf7cb3adc228ee333f13941f45feffd",
+      "implementation": {
+        "actor": "/root/astra_director/sol_code",
+        "summary": "Five-specialist pipeline and placed Blueprint door with opposite-side case",
+        "addressed": []
+      },
+      "review": {
+        "actor": "/root/astra_director/sol_review",
+        "utc": "2026-11-06T08:13:39.530452+00:00",
+        "digest": "0e3fd7137183bdc2e758da0dd9c1a13f9cf7cb3adc228ee333f13941f45feffd",
+        "verdict": "request_changes",
+        "summary": "The five-specialist pipeline and routing satisfy the reviewed source contract, including the upstream evidence freshness repair. One fixture geometry regression remains.",
+        "findings": [
+          {
+            "evidence": "Mesh is the actor root (line 43). SetWorldScale3D(Scale) at line 48 sets its requested dimensions, but SetActorTransform at line 50 immediately replaces root scale with DoorTransform.GetScale3D(), omitting Scale. Preserve the requested Scale multiplied by the door scale, or apply the requested mesh scaling after setting the actor transform.",
+            "consequence": "The requested per-box dimensions are overwritten, so floor, walls, jambs, markers and non-pawn become equally sized cubes rather than the intended validation scene. This degrades the visual evidence and changes the non-pawn fixture geometry.",
+            "severity": "P2",
+            "location": "examples/door-demo/Source/StudioDoor/StudioDoorMode.cpp:50",
+            "trigger": "Run the fixture with either the identity native fallback or a placed door; AddBox is used for every set mesh and the ignored non-pawn.",
+            "id": "R1"
+          }
+        ]
+      },
+      "stages": {}
+    },
+    {
+      "number": 2,
+      "source_digest": "fc2de0a948b9cf3731201cbee7c7d5d11ade005d6f6c0988c3bf8f8ae2a51189",
+      "implementation": {
+        "actor": "/root/astra_director/sol_code",
+        "summary": "Preserve fixture box dimensions when applying selected door transform",
+        "addressed": [
+          "R1"
+        ]
+      },
+      "review": {
+        "actor": "/root/astra_director/sol_review",
+        "utc": "2026-11-06T08:14:43.004440+00:00",
+        "digest": "fc2de0a948b9cf3731201cbee7c7d5d11ade005d6f6c0988c3bf8f8ae2a51189",
+        "verdict": "approve",
+        "summary": "R1 closed: AddBox now applies requested per-box dimensions multiplied by selected door scale in its final actor transform, preserving fixture geometry for identity and transformed doors. Independently checked the repair against surrounding code, confirmed Mode.cpp is the only changed snapshot file, and verified every declared snapshot file hash. No unresolved source findings. Build, editor and gameplay evidence remain separate required specialist stages.",
+        "findings": []
+      },
+      "stages": {
+        "editor": {
+          "actor": "/root/astra_director/sol_editor",
+          "model": "gpt-6.1-sol",
+          "status": "passed",
+          "summary": "Official MCP bound project, created compiled saved placed Blueprint/map, fresh PIE 12/12 and screenshot; final editor closed",
+          "source_digest": "fc2de0a948b9cf3731201cbee7c7d5d11ade005d6f6c0988c3bf8f8ae2a51189",
+          "sha256": "a12a9fbefa5d87175adbaf1e6c58aeb37f4965e078fbe8c3fda4a9b84c703008",
+          "utc": "2026-11-06T08:25:54.794061+00:00"
+        },
+        "verification": {
+          "actor": "/root/astra_director/sol_verification",
+          "model": "gpt-6.1-sol",
+          "status": "passed",
+          "summary": "Fresh repaired C++ build, 35 tests, validator, package and authored Blueprint-map packaged runtime exit0 with 12 checks and payload inventory hashes",
+          "source_digest": "fc2de0a948b9cf3731201cbee7c7d5d11ade005d6f6c0988c3bf8f8ae2a51189",
+          "sha256": "b411dedabdf50b34a32f7072660e2d479ffdc2d7e5e4545ec54bd5cd0ebaa37a",
+          "utc": "2026-11-06T08:31:07.375765+00:00"
+        },
+        "qa": {
+          "actor": "/root/astra_director/sol_qa",
+          "model": "gpt-6.1-sol",
+          "status": "passed",
+          "summary": "Independent fresh same-payload run exited0; 48 original hashes match, 12 numeric scenarios and personally inspected new screenshot passed within scripted scope",
+          "source_digest": "fc2de0a948b9cf3731201cbee7c7d5d11ade005d6f6c0988c3bf8f8ae2a51189",
+          "sha256": "52199fd8e454c0a3b01388b8499fcf1d417539a167fa796f1b8e02e919103a3b",
+          "utc": "2026-11-06T08:35:06.561969+00:00"
+        }
+      }
+    }
+  ],
+  "custody_events": [
+    {
+      "sequence": 6,
+      "utc": "2026-11-06T08:16:25.853479+00:00",
+      "kind": "editor_custody_acquire",
+      "actor": "/root/astra_director/sol_editor"
+    },
+    {
+      "sequence": 8,
+      "utc": "2026-11-06T08:25:54.871798+00:00",
+      "kind": "editor_custody_release",
+      "actor": "/root/astra_director/sol_editor"
+    }
+  ],
+  "final_custody": null,
+  "final_gate": {
+    "ready": true,
+    "state": "complete",
+    "reasons": [],
+    "participants": {
+      "implementer": "/root/astra_director/sol_code",
+      "reviewer": "/root/astra_director/sol_review",
+      "coordinator": "/root/astra_director"
+    },
+    "round": 2,
+    "digest": "fc2de0a948b9cf3731201cbee7c7d5d11ade005d6f6c0988c3bf8f8ae2a51189",
+    "model_attribution": {
+      "verification": {
+        "id": "/root/astra_director/sol_verification",
+        "model": "gpt-6.1-sol"
+      },
+      "coordinator": {
+        "id": "/root/astra_director",
+        "model": "gpt-6-astra"
+      },
+      "qa": {
+        "id": "/root/astra_director/sol_qa",
+        "model": "gpt-6.1-sol"
+      },
+      "reviewer": {
+        "id": "/root/astra_director/sol_review",
+        "model": "gpt-6.1-sol"
+      },
+      "implementer": {
+        "id": "/root/astra_director/sol_code",
+        "model": "gpt-6.1-sol"
+      },
+      "editor": {
+        "id": "/root/astra_director/sol_editor",
+        "model": "gpt-6.1-sol"
+      }
+    },
+    "exit_code": 0
+  },
+  "raw_stage_report_hashes": {
+    "official-mcp-studio.json": "a12a9fbefa5d87175adbaf1e6c58aeb37f4965e078fbe8c3fda4a9b84c703008",
+    "technical-verification.json": "b411dedabdf50b34a32f7072660e2d479ffdc2d7e5e4545ec54bd5cd0ebaa37a",
+    "qa-verification.json": "52199fd8e454c0a3b01388b8499fcf1d417539a167fa796f1b8e02e919103a3b",
+    "gate-result.json": "d53a81793c86949a090cf0cfc6fb645ca39bb9fa723b9d3a6e6d42af5b5e3ad7"
+  },
+  "artifact_note": "Stage SHA256 identifies locally retained raw reports; curated JSON has different bytes. Absolute root/evidence paths omitted."
+}

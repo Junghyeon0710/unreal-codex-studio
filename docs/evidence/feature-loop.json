@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "participants": {
+    "implementer": "/root/workflow_implementer",
+    "reviewer": "/root/door_reviewer",
+    "coordinator": "/root"
+  },
+  "scopes": [
+    ".agents/skills/ue-feature/SKILL.md",
+    ".agents/skills/ue-review/SKILL.md",
+    ".codex/agents/cpp-engineer.toml",
+    ".codex/agents/qa-engineer.toml",
+    ".codex/agents/technical-director.toml",
+    "AGENTS.md",
+    "docs/feature-loop.md",
+    "tests/test_review_loop.py",
+    "tools/review_loop.py"
+  ],
+  "criteria": [
+    "Actual separate host workers implement and independently review; repairs return to the author",
+    "Completion requires current approved source and all required observed verification"
+  ],
+  "required_checks": [
+    "config-skills",
+    "toolkit-tests"
+  ],
+  "max_repairs": 3,
+  "rounds": [
+    {
+      "number": 1,
+      "snapshot": {
+        "files": {
+          ".agents/skills/ue-feature/SKILL.md": "1ef988fc1fb9b6ea9a728ebf4918f72bd015e819f5cc0d4dbbf4b6646b763e15",
+          ".agents/skills/ue-review/SKILL.md": "56e96570297a2758cacc10dc659492d84f33aee3d4995af47b5077d37cfb0629",
+          ".codex/agents/cpp-engineer.toml": "2eb2647e4765f9c6f3e9fe275c7e61323ed6f81ef8d8c525fdde7c151fc284ca",
+          ".codex/agents/qa-engineer.toml": "b1fd4508329e7f844507823dd17f8c7e69407f52db2c6bc7380f6170ada26868",
+          ".codex/agents/technical-director.toml": "23720877bcca5cf805222ba6da315dd917d0a53c867f99d552ecc380e8197caa",
+          "AGENTS.md": "a77cec461409a52119eac5e8a299c7dd20d5ecc11017406f0abac7403d63bdda",
+          "docs/feature-loop.md": "563559597e37082dda4a93fe2f20f984c048dfda771873398beb3d2627f1e69c",
+          "tests/test_review_loop.py": "a223624ca99b0658d21582ec422f08e992d8b274f827e2b20fe05da16da53aa4",
+          "tools/review_loop.py": "ed77df28172864201a9a17eaa805fcaebb9dcf1585ae0243abb81f4e31d7500f"
+        },
+        "digest": "424285bd485b9fcd28f965f596b5253bce7205441c365323f8999df663657bdd"
+      },
+      "implementation": {
+        "actor": "/root/workflow_implementer",
+        "summary": "Workflow worker delivered delegation instructions, journal gate and 10 focused tests",
+        "addressed": []
+      },
+      "review": {
+        "actor": "/root/door_reviewer",
+        "utc": "2026-11-06T07:36:56.587240+00:00",
+        "digest": "424285bd485b9fcd28f965f596b5253bce7205441c365323f8999df663657bdd",
+        "verdict": "request_changes",
+        "summary": "Independently inspected workflow implementation/instructions and ran all 10 focused tests successfully. A separate reproduction found an unrecoverable stale pending-review state. No Unreal runtime behavior was reviewed in this report.",
+        "findings": [
+          {
+            "id": "W1",
+            "severity": "P2",
+            "location": "tools/review_loop.py:150-151",
+            "trigger": "Submit a source snapshot, then change any scoped source before its independent review is recorded.",
+            "consequence": "The journal cannot progress: review rejects the stale source and instructs resubmission, while submit rejects because the previous review is missing. The coordinator must restore old source or abandon/edit the journal, contrary to preserving history and submitting/reviewing the current snapshot.",
+            "evidence": "Executed an independent reproduction using the existing ReviewLoopTests fixture: status returned stale; review rejected with 'Source changed after submission; submit and review the new snapshot'; submit rejected with 'Finish the pending independent review before resubmitting'. Add a bounded supersede/recovery path that preserves the invalidated round and requires a fresh review and verification."
+          }
+        ]
+      },
+      "verification": {}
+    },
+    {
+      "number": 2,
+      "snapshot": {
+        "files": {
+          ".agents/skills/ue-feature/SKILL.md": "1ef988fc1fb9b6ea9a728ebf4918f72bd015e819f5cc0d4dbbf4b6646b763e15",
+          ".agents/skills/ue-review/SKILL.md": "56e96570297a2758cacc10dc659492d84f33aee3d4995af47b5077d37cfb0629",
+          ".codex/agents/cpp-engineer.toml": "2eb2647e4765f9c6f3e9fe275c7e61323ed6f81ef8d8c525fdde7c151fc284ca",
+          ".codex/agents/qa-engineer.toml": "b1fd4508329e7f844507823dd17f8c7e69407f52db2c6bc7380f6170ada26868",
+          ".codex/agents/technical-director.toml": "23720877bcca5cf805222ba6da315dd917d0a53c867f99d552ecc380e8197caa",
+          "AGENTS.md": "a77cec461409a52119eac5e8a299c7dd20d5ecc11017406f0abac7403d63bdda",
+          "docs/feature-loop.md": "1298a6b9d46f2de1d3fefb2ebf8f634977af178330a0483cd583c36207744c07",
+          "tests/test_review_loop.py": "7c21cc700024d04b2034b223d7581a064ff5f7301b0babfb60132a41be7891de",
+          "tools/review_loop.py": "ecc942749d39883e0af9801d96e41591587fd82c303cef867bb3df3eb00a2d8e"
+        },
+        "digest": "c9f846b1d6c8f6fdec118598420866f2b8d6f1833bc3eee02a5e7ce63a0c82e8"
+      },
+      "implementation": {
+        "actor": "/root/workflow_implementer",
+        "summary": "W1 repaired with explicit bounded stale pending-review supersession, preserved history and new regression coverage",
+        "addressed": [
+          "W1"
+        ]
+      },
+      "review": {
+        "actor": "/root/door_reviewer",
+        "utc": "2026-11-06T07:39:58.934189+00:00",
+        "digest": "c9f846b1d6c8f6fdec118598420866f2b8d6f1833bc3eee02a5e7ce63a0c82e8",
+        "verdict": "approve",
+        "summary": "Independently re-reviewed actual workflow source and instructions. W1 is resolved by explicit stale-pending supersession: previous rounds/evidence are preserved, a new round requires fresh review and verification, unchanged pending source cannot be superseded, and the repair budget remains enforced. All 12 focused tests passed in reviewer execution, including the two new recovery regressions. Recomputed scoped digest matches the supplied snapshot. No remaining actionable findings in the reviewed scope. The journal is consistency checking, not identity authentication or proof of test semantics.",
+        "findings": []
+      },
+      "verification": {
+        "toolkit-tests": {
+          "actor": "/root",
+          "status": "passed",
+          "summary": "28 real unittest cases passed including stale pending review regression",
+          "source_digest": "c9f846b1d6c8f6fdec118598420866f2b8d6f1833bc3eee02a5e7ce63a0c82e8",
+          "evidence": "STUDIO_ROOT\\.studio\\door\\toolkit-results.json",
+          "sha256": "c9cab94cf734ca5aef9657c900b4a78eebbfe61689a4db4886b96a84814432d4",
+          "utc": "2026-11-06T07:40:46.112116+00:00"
+        },
+        "config-skills": {
+          "actor": "/root",
+          "status": "passed",
+          "summary": "15 skills and 9 role definitions validate",
+          "source_digest": "c9f846b1d6c8f6fdec118598420866f2b8d6f1833bc3eee02a5e7ce63a0c82e8",
+          "evidence": "STUDIO_ROOT\\.studio\\door\\config-results.json",
+          "sha256": "7e40fee4b15bfdd32424babe07d83296b1af0ff7d939464d1be3ee768cbfd420",
+          "utc": "2026-11-06T07:40:46.270692+00:00"
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "sequence": 1,
+      "utc": "2026-11-06T07:36:25.200524+00:00",
+      "kind": "initialized",
+      "actor": "/root"
+    },
+    {
+      "sequence": 2,
+      "utc": "2026-11-06T07:36:25.300978+00:00",
+      "kind": "implementation_submitted",
+      "actor": "/root/workflow_implementer",
+      "round": 1,
+      "digest": "424285bd485b9fcd28f965f596b5253bce7205441c365323f8999df663657bdd",
+      "addressed": []
+    },
+    {
+      "sequence": 3,
+      "utc": "2026-11-06T07:36:56.587240+00:00",
+      "kind": "review_completed",
+      "actor": "/root/door_reviewer",
+      "round": 1,
+      "verdict": "request_changes",
+      "finding_ids": [
+        "W1"
+      ]
+    },
+    {
+      "sequence": 4,
+      "utc": "2026-11-06T07:38:34.220814+00:00",
+      "kind": "implementation_submitted",
+      "actor": "/root/workflow_implementer",
+      "round": 2,
+      "digest": "c9f846b1d6c8f6fdec118598420866f2b8d6f1833bc3eee02a5e7ce63a0c82e8",
+      "addressed": [
+        "W1"
+      ]
+    },
+    {
+      "sequence": 5,
+      "utc": "2026-11-06T07:39:58.934189+00:00",
+      "kind": "review_completed",
+      "actor": "/root/door_reviewer",
+      "round": 2,
+      "verdict": "approve",
+      "finding_ids": []
+    },
+    {
+      "sequence": 6,
+      "utc": "2026-11-06T07:40:46.112116+00:00",
+      "kind": "verification_recorded",
+      "actor": "/root",
+      "round": 2,
+      "check": "toolkit-tests",
+      "result": {
+        "actor": "/root",
+        "status": "passed",
+        "summary": "28 real unittest cases passed including stale pending review regression",
+        "source_digest": "c9f846b1d6c8f6fdec118598420866f2b8d6f1833bc3eee02a5e7ce63a0c82e8",
+        "evidence": "STUDIO_ROOT\\.studio\\door\\toolkit-results.json",
+        "sha256": "c9cab94cf734ca5aef9657c900b4a78eebbfe61689a4db4886b96a84814432d4",
+        "utc": "2026-11-06T07:40:46.112116+00:00"
+      }
+    },
+    {
+      "sequence": 7,
+      "utc": "2026-11-06T07:40:46.270692+00:00",
+      "kind": "verification_recorded",
+      "actor": "/root",
+      "round": 2,
+      "check": "config-skills",
+      "result": {
+        "actor": "/root",
+        "status": "passed",
+        "summary": "15 skills and 9 role definitions validate",
+        "source_digest": "c9f846b1d6c8f6fdec118598420866f2b8d6f1833bc3eee02a5e7ce63a0c82e8",
+        "evidence": "STUDIO_ROOT\\.studio\\door\\config-results.json",
+        "sha256": "7e40fee4b15bfdd32424babe07d83296b1af0ff7d939464d1be3ee768cbfd420",
+        "utc": "2026-11-06T07:40:46.270692+00:00"
+      }
+    }
+  ]
+}

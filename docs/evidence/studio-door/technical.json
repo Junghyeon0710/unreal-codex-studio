@@ -1,0 +1,413 @@
+{
+  "schema": 1,
+  "stage": "technical_verification",
+  "status": "passed",
+  "utc": "2026-11-06T08:30:41.250166+00:00",
+  "source_digest": "fc2de0a948b9cf3731201cbee7c7d5d11ade005d6f6c0988c3bf8f8ae2a51189",
+  "attribution": {
+    "session_id": "/root/astra_director/sol_verification",
+    "model": "gpt-6.1-sol"
+  },
+  "engine": "UE 5.8.4",
+  "target": "Win64 Development",
+  "stage_results": {
+    "build": {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 101.22,
+      "utc": "2026-11-06T08:14:31.543540+00:00"
+    },
+    "repository_tests": {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.78,
+      "utc": "2026-11-06T08:14:46.872269+00:00"
+    },
+    "repository_validation": {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "utc": "2026-11-06T08:14:46.843345+00:00"
+    },
+    "package": {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 123.97,
+      "utc": "2026-11-06T08:26:19.956131+00:00"
+    },
+    "packaged_scripted_runtime": {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 72.81,
+      "utc": "2026-11-06T08:28:54.571042+00:00"
+    }
+  },
+  "repository_test_count": 35,
+  "validated_skills": 15,
+  "validated_roles": 13,
+  "packaged_runtime": {
+    "run_id": "6416d533d5024c0080d436640019545b",
+    "payload_sha256": "910c33e9f75ce14d4ec10a28ceb5ecacf23e86ef7d16b257986084ecdb66f651",
+    "status": "passed",
+    "exit_code": 0,
+    "seconds": 72.81,
+    "validations": {
+      "exit_zero": true,
+      "fresh_run_id": true,
+      "runtime_passed": true,
+      "packaged_world": true,
+      "authored_map": true,
+      "placed_blueprint": true,
+      "twelve_checks": true,
+      "opposite_side": true,
+      "closed_empty": true,
+      "rendered_screenshot": true,
+      "hardware_rhi": true,
+      "no_log_errors": true,
+      "payload_unchanged": true
+    },
+    "runtime": {
+      "status": "passed",
+      "run_id": "6416d533d5024c0080d436640019545b",
+      "map_package": "/Game/StudioDoor/StudioDoorValidation",
+      "door_selection": "level_placed",
+      "door_class": "/Game/StudioDoor/BP_StudioDoor.BP_StudioDoor_C",
+      "door_actor_path": "/Game/StudioDoor/StudioDoorValidation.StudioDoorValidation:PersistentLevel.BP_StudioDoor_C_0",
+      "door_origin": "X=0.000 Y=0.000 Z=0.000",
+      "door_is_blueprint": true,
+      "rhi": "D3D12",
+      "is_editor": false,
+      "is_commandlet": false,
+      "game_world": true,
+      "capture_mode": false,
+      "screenshot_written": true,
+      "elapsed_seconds": 18.500455856323242,
+      "door_angle": 0,
+      "occupant_count": 0,
+      "checks": [
+        {
+          "name": "initial_closed",
+          "passed": true,
+          "seconds": 0.837551474571228,
+          "angle": 0,
+          "occupants": 0
+        },
+        {
+          "name": "non_pawn_ignored",
+          "passed": true,
+          "seconds": 1.2102622985839844,
+          "angle": 0,
+          "occupants": 0
+        },
+        {
+          "name": "pawn_opens_door",
+          "passed": true,
+          "seconds": 4.901012897491455,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "component_exit_keeps_occupant",
+          "passed": true,
+          "seconds": 5.90477991104126,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "two_pawns_counted_once_each",
+          "passed": true,
+          "seconds": 6.951987266540527,
+          "angle": 90,
+          "occupants": 2
+        },
+        {
+          "name": "one_leaves_other_keeps_open",
+          "passed": true,
+          "seconds": 8.156576156616211,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "destroyed_last_occupant_closes",
+          "passed": true,
+          "seconds": 9.850404739379883,
+          "angle": 0,
+          "occupants": 0
+        },
+        {
+          "name": "opposite_side_pawn_reopens",
+          "passed": true,
+          "seconds": 11.503828048706055,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "reentry_begins_mid_close",
+          "passed": true,
+          "seconds": 12.25562572479248,
+          "angle": 49.33926773071289,
+          "occupants": 0
+        },
+        {
+          "name": "reversal_is_continuous",
+          "passed": true,
+          "seconds": 12.403538703918457,
+          "angle": 62.41200256347656,
+          "occupants": 1
+        },
+        {
+          "name": "reentry_reaches_open",
+          "passed": true,
+          "seconds": 13.604288101196289,
+          "angle": 90,
+          "occupants": 1
+        },
+        {
+          "name": "last_pawn_leaves_closes",
+          "passed": true,
+          "seconds": 15.601649284362793,
+          "angle": 0,
+          "occupants": 0
+        }
+      ]
+    },
+    "log_errors": []
+  },
+  "saved_asset_comparison": [
+    {
+      "project_relative_path": "Content/StudioDoor/BP_StudioDoor.uasset",
+      "editor_sha256": "35f17ff2103c9dda870645e06bcd576be980db99df541648ad2ea99eee1e8494",
+      "packaging_source_sha256": "35f17ff2103c9dda870645e06bcd576be980db99df541648ad2ea99eee1e8494",
+      "matches": true
+    },
+    {
+      "project_relative_path": "Content/StudioDoor/StudioDoorValidation.umap",
+      "editor_sha256": "4496a656b94c80ccc2bd72bba9e514cfd497074ed8f88b9d6e01b290e42758ea",
+      "packaging_source_sha256": "4496a656b94c80ccc2bd72bba9e514cfd497074ed8f88b9d6e01b290e42758ea",
+      "matches": true
+    }
+  ],
+  "package_inventory": {
+    "raw_manifest_sha256": "1180679ffd7ac3385759a806e8dc8fc8dd37f93cdf7e064c60f027be6b74e01b",
+    "file_count": 48,
+    "total_bytes": 1029043893,
+    "files": {
+      "Windows/Engine/Binaries/ThirdParty/DbgHelp/dbghelp.dll": {
+        "bytes": 2232688,
+        "sha256": "441a7ccee2f854352366e783fcb79fe895d09ad4c577689319e1a664f296c4a3"
+      },
+      "Windows/Engine/Binaries/ThirdParty/MsQuic/v220/win64/msquic.dll": {
+        "bytes": 2547080,
+        "sha256": "27c231d80310ea9005a6b0c17054f28887272723477e7292a7f9d63b6d1579ee"
+      },
+      "Windows/Engine/Binaries/ThirdParty/NVIDIA/NVaftermath/Win64/GFSDK_Aftermath_Lib.x64.dll": {
+        "bytes": 5799016,
+        "sha256": "ce49be4194706417ccdc57833aec478faa1e08646157688c879fe616d43abd65"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Ogg/Win64/VS2015/libogg_64.dll": {
+        "bytes": 59832,
+        "sha256": "c719a5f165e4afe29e92a7eee9762c2e9f301a177885ab1ab8d2c7f57d4a86bf"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vorbis/Win64/VS2015/libvorbis_64.dll": {
+        "bytes": 1724856,
+        "sha256": "b8a3e31a6c2d401809bae7aa0fd29f49c2114eeccfba4dc5c7ac8eddbd4b7a98"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vorbis/Win64/VS2015/libvorbisfile_64.dll": {
+        "bytes": 48568,
+        "sha256": "6d0e4395bc4d0ef501c3f7f7b4e63fa0cf2ab2ca80328560b7cb10e6d5a171cf"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_api_dump.dll": {
+        "bytes": 8161680,
+        "sha256": "583db3d1acd76363f0f67d9da414dd147ca9ffab4a47824027351b063fe66aea"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_api_dump.json": {
+        "bytes": 13848,
+        "sha256": "9e55221c225dce4b5448bac7dadb7e39fd216f51354dde02e58f950f4a0dd80b"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_crash_diagnostic.dll": {
+        "bytes": 2890128,
+        "sha256": "8e080a40ac452c4b249b9060e2f4c208af9159afba9e75e91d1c55d85e387d04"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_crash_diagnostic.json": {
+        "bytes": 23055,
+        "sha256": "578bde354874789671dee1a96468c965619c9f3ba16cfa65f850e81a80674087"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_gfxreconstruct.dll": {
+        "bytes": 8166288,
+        "sha256": "780c4bcae69a50e38181edfd20a58780fa02539f4ff302c8c4a0e2899ee7a0cb"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_gfxreconstruct.json": {
+        "bytes": 28099,
+        "sha256": "71d4e243a2af74874f4f61378bdfe3753cb01ce5eb9b98400d83612bf882a815"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_khronos_profiles.dll": {
+        "bytes": 1485200,
+        "sha256": "9682f7f508855980b9c31147493c962d43a0798c4596870cd7c5dee009859ea2"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_khronos_profiles.json": {
+        "bytes": 66696,
+        "sha256": "6095c28691757e083a8c1bef3c69ca76a8b5017e21acaf55d1bc7e82221a0fbe"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_khronos_shader_object.dll": {
+        "bytes": 415632,
+        "sha256": "7026da236cecadd40b6a1723d0881349d9471592d98cabd60994f99dc2db3e53"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_khronos_shader_object.json": {
+        "bytes": 4455,
+        "sha256": "18ecafc9a65e1b7af8cd0e36dc936026cdb3aed333c4ea5a7c17d6d9465cfaf4"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_khronos_synchronization2.dll": {
+        "bytes": 397192,
+        "sha256": "485eb9b7f0320bd1af3af03dbe3a052d6f5e9cda14496bbe1a062d626d501eae"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_khronos_synchronization2.json": {
+        "bytes": 1910,
+        "sha256": "a1e980a24be9a16a826b00c27d61b85ee0e2e17226dc9c4e8eec031879e5f26a"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_khronos_validation.dll": {
+        "bytes": 19509136,
+        "sha256": "27fc6a4ca52244f18337a652db638865abd679f6e1d129bf4770fd3e6c4f1a60"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Vulkan/Win64/VkLayer_khronos_validation.json": {
+        "bytes": 95917,
+        "sha256": "5c464b84457776d92a674de506f7b7a489294583a7d7609f78fcc52bc4406d09"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Windows/WinPixEventRuntime/x64/WinPixEventRuntime.dll": {
+        "bytes": 69056,
+        "sha256": "f5f6f69210cc958b92285ff444e2ef48f5c46b4d6470b07960739dbcb6554b54"
+      },
+      "Windows/Engine/Binaries/ThirdParty/Windows/XAudio2_9/x64/xaudio2_9redist.dll": {
+        "bytes": 858152,
+        "sha256": "e6ae545b31a5453f1b1002d434cc802a6088cf05c5faa414d7ebe00264161506"
+      },
+      "Windows/Engine/Config/StagedBuild_StudioDoor.ini": {
+        "bytes": 3,
+        "sha256": "f1945cd6c19e56b3c1c78943ef5ec18116907a4ca1efc40a57d48ab1db7adfc5"
+      },
+      "Windows/Engine/Content/Renderer/TessellationTable.bin": {
+        "bytes": 259568,
+        "sha256": "edc4f3b628a139c5e185bbaeca661c95c1f427368d3b92892c5cff36c56dd941"
+      },
+      "Windows/Engine/Content/Slate/Cursor/invisible.cur": {
+        "bytes": 326,
+        "sha256": "fef3980fa567e9c45d5d8dcaa432a2c1a3f3bb17fe67d7ab198164f56c142aa1"
+      },
+      "Windows/Engine/Content/SlateDebug/Fonts/LastResort.tps": {
+        "bytes": 930,
+        "sha256": "0f775fa99d05e21d43d2d06d55982b23dcdccdb512a9a5a07aff674f212c41b8"
+      },
+      "Windows/Engine/Content/SlateDebug/Fonts/LastResort.ttf": {
+        "bytes": 5395052,
+        "sha256": "fff0f8de0b868b964950fe97c9b60f893e9bc85a4f90b3629c5693db058b97b9"
+      },
+      "Windows/Engine/Extras/GPUDumpViewer/GPUDumpViewer.html": {
+        "bytes": 195428,
+        "sha256": "eb599b5171e99d7c2e35732abf9525baeb39b9c2ac86619522f307c57cc90384"
+      },
+      "Windows/Engine/Extras/GPUDumpViewer/OpenGPUDumpViewer.bat": {
+        "bytes": 879,
+        "sha256": "e8f7ef9c88697041bd87902b76e52558979ca866c7450b1da108a94a027f441b"
+      },
+      "Windows/Engine/Extras/GPUDumpViewer/OpenGPUDumpViewer.sh": {
+        "bytes": 2165,
+        "sha256": "1b222b5d5aad6dd9b5b9f0a1c72d38635149540f2c7a368600ec76c1d304390a"
+      },
+      "Windows/Engine/Plugins/NNE/NNERuntimeORT/Binaries/ThirdParty/Onnxruntime/Win64/onnxruntime.dll": {
+        "bytes": 17339384,
+        "sha256": "eacc4d935137d67ab0cc1b896472d1de551dfc6545ed9ad74ab842400272e036"
+      },
+      "Windows/Manifest_DebugFiles_Win64.txt": {
+        "bytes": 437,
+        "sha256": "c408c921c708d80fee7814261a21b041b847d4472772d6ac42f71da7018f35bf"
+      },
+      "Windows/Manifest_NonUFSFiles_Win64.txt": {
+        "bytes": 2902,
+        "sha256": "72b7c81cd9c2599803661cc63c3502a9f7f5d9edf42a03fe16d0e42c54c645b8"
+      },
+      "Windows/Manifest_UFSFiles_Win64.txt": {
+        "bytes": 202036,
+        "sha256": "e4847633d28d656e1b426c697c852b94f3b72867b7908868cda292f33efd2d1c"
+      },
+      "Windows/NOTICES.txt": {
+        "bytes": 111,
+        "sha256": "ba49ae5586f817b36a2772269f71f899cb1f54b5f2720fad951319edd5e140b8"
+      },
+      "Windows/StudioDoor/Binaries/Win64/D3D12/x64/D3D12Core.dll": {
+        "bytes": 4831768,
+        "sha256": "f0cbdba3043bc30e2a17dfd7d6c05e61c9c4098eb1d5ee8ccd2ab3f4696e8e20"
+      },
+      "Windows/StudioDoor/Binaries/Win64/D3D12/x64/d3d12SDKLayers.dll": {
+        "bytes": 4943344,
+        "sha256": "180a630861dc88d26db517da787009edf75e4c83309b819814b84b86f8db36c1"
+      },
+      "Windows/StudioDoor/Binaries/Win64/DML/x64/DirectML.dll": {
+        "bytes": 18538488,
+        "sha256": "4e357e48c3fb00e5ac868f2b33ba5576873c013349e2cc1d7a9be0071253ac62"
+      },
+      "Windows/StudioDoor/Binaries/Win64/StudioDoor.exe": {
+        "bytes": 331935232,
+        "sha256": "910c33e9f75ce14d4ec10a28ceb5ecacf23e86ef7d16b257986084ecdb66f651"
+      },
+      "Windows/StudioDoor/Binaries/Win64/StudioDoor.pdb": {
+        "bytes": 364466176,
+        "sha256": "03a3da3e2e590211045787d5e66e78d1c18655774c459c3a84ab2ba9d93031fc"
+      },
+      "Windows/StudioDoor/Binaries/Win64/tbb12.dll": {
+        "bytes": 342456,
+        "sha256": "c489b6bd4dd2be18d4f8778e3f86caa7672ec8a206c9a54228b3bb60e2923f76"
+      },
+      "Windows/StudioDoor/Binaries/Win64/tbbmalloc.dll": {
+        "bytes": 117176,
+        "sha256": "aca208101bba1e440e6fae6580eedd45508ec405c9674063baf7ca23d29316bd"
+      },
+      "Windows/StudioDoor/Content/Paks/global.ucas": {
+        "bytes": 3332496,
+        "sha256": "91cf5102e57070b6e50a2e7301fad2b65e16bb091285f3378e8b92dd8d1aae4a"
+      },
+      "Windows/StudioDoor/Content/Paks/global.utoc": {
+        "bytes": 806,
+        "sha256": "430ece5a1bf94feaa811884ec3f17eb102c642908e03844abf90a2e1463dc3a8"
+      },
+      "Windows/StudioDoor/Content/Paks/StudioDoor-Windows.pak": {
+        "bytes": 11158417,
+        "sha256": "589d2316f7e2cf2a73ad328adb4f575a027e5f90359193cc925c944459e93e33"
+      },
+      "Windows/StudioDoor/Content/Paks/StudioDoor-Windows.ucas": {
+        "bytes": 211021888,
+        "sha256": "d344a2e33786a78dfa1f0a21db84791d37a3a555ccd1fbcf0bfd691d02f41025"
+      },
+      "Windows/StudioDoor/Content/Paks/StudioDoor-Windows.utoc": {
+        "bytes": 186421,
+        "sha256": "aa915d1035726506240133d1807d79468660573eede7a8d9e664a4c76335b636"
+      },
+      "Windows/StudioDoor.exe": {
+        "bytes": 171520,
+        "sha256": "80abfab3bf230454fe88c02c3915e3f1108a96e7b36ea9ece3197b608e36fc57"
+      }
+    }
+  },
+  "historical_attempts": [
+    {
+      "status": "failed",
+      "reason": "Sandbox denied UBT cache creation before compilation; authorized escalation retry passed."
+    },
+    {
+      "status": "passed",
+      "limitation": "Before R1 scale repair; superseded by fresh repaired build."
+    }
+  ],
+  "observations": [
+    "Package Zen staging readiness retry recovered automatically; UAT completed exit0.",
+    "Runtime directly launched actual payload executable; bootstrap and payload inventory hashes retained.",
+    "12 scripted pawn checks passed including opposite side, multi-component/multi-pawn occupancy, destroyed occupant and continuous reversal.",
+    "Authored saved map selected level_placed BP_StudioDoor_C, not native fallback; D3D12 screenshot written; final door angle0 occupancy0."
+  ],
+  "limitations": [
+    "Scripted pawn movement, not manual player input or manual gameplay.",
+    "Independent QA/visual review is a separate stage; no full playthrough, multiplayer, gamepad or other-platform validation.",
+    "Original UBT sandbox failure and pre-repair build remain historical evidence, not current passes."
+  ],
+  "launch_scope": "Actual payload executable launched directly; bootstrap hash is inventoried but bootstrap startup is not claimed.",
+  "completion_note": "Technical stage passed. Independent QA and final gate subsequently passed; see qa.json and gate.json.",
+  "sanitization": "Only stage outcomes, relative package paths/hashes, runtime values and limits; no absolute local paths, full config, tokens or binaries."
+}

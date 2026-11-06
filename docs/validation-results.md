@@ -1,5 +1,34 @@
 # Validation results — 2026-11-06
 
+## Current toolkit: adaptive staffing
+
+The adaptive update passed **44 Python tests**, configuration validation for
+**15 skills / 13 roles**, and quick validation of the three edited skills.
+Astra selected the code author and independent reviewer for this source/policy
+change. The reviewer approved the recorded snapshot and independently reran the
+suite. See [curated adaptive results](evidence/adaptive-staffing.json).
+No Unreal execution was selected or repeated for this tooling update.
+
+The earlier [five-specialist door experiment](studio-door-validation.md) passed
+its 35-test suite, C++ rebuild, official MCP Blueprint creation/placement, PIE,
+Win64 packaging and independent packaged QA (12/12 gameplay checks per run).
+Those results belong to that recorded source snapshot; they do not validate later
+tooling edits. The door project, assets, game binaries, original logs and captured
+media remain local. Published JSON retains observations and artifact hashes,
+including references to local-only files; it is not a bundled reproduction kit.
+
+## Follow-up: implementation, independent review and door gameplay
+
+The later [door collaboration test](door-demo.md) used distinct Codex desktop
+workers, a real finding/repair/re-review cycle in the workflow tool, 28 passing
+Python tests, and the StudioDoor fixture. Its C++ build, official MCP Blueprint
+operations, PIE, packaging and packaged run passed. All 12 gameplay assertions
+passed in PIE and the packaged executable. Captured media and the door project
+remain local and are not included in Git. This is a separate follow-up; the original baseline
+and native CLI-role evidence below retain their original scope and counts.
+
+## Original baseline
+
 Tested with Windows, Unreal Engine **5.8.4 / changelist 58902052** installed through
 Epic's distribution, Python 3.12.14, and Codex **0.167.0-alpha.3.2**.
 Live Unreal work used new disposable StudioLab and StudioBuild projects, not an existing game.
