@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "test": "wrong_project_binding_rejected",
+  "message": "Project binding failed: the endpoint refused the expected project's Saved challenge.",
+  "editor_mutations": 0
+}

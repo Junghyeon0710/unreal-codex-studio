@@ -1,0 +1,4 @@
+interface:
+  display_name: "UE REVIEW"
+  short_description: "Review Unreal source and asset changes for actionable correc"
+  default_prompt: "Use $ue-review for the current Unreal task, following AGENTS.md and the user's scope."

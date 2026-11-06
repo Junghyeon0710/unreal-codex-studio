@@ -1,0 +1,86 @@
+{
+  "timestamp_utc": "2026-11-06T06:26:20.762335+00:00",
+  "status": "passed",
+  "checks": [
+    "project_binding",
+    "blueprint_created",
+    "blueprint_compiled",
+    "asset_saved_and_read_back",
+    "actor_spawned_and_found",
+    "pie_running",
+    "pie_stopped"
+  ],
+  "server": {
+    "protocolVersion": "2025-11-25",
+    "capabilities": {
+      "resources": {},
+      "tools": {
+        "listChanged": true
+      }
+    },
+    "serverInfo": {
+      "name": "",
+      "title": "",
+      "version": ""
+    }
+  },
+  "asset": "/Game/StudioSmoke/BP_StudioSmoke_04da0ff4",
+  "events": [
+    {
+      "tool": "editor_toolset.toolsets.asset.AssetTools.read_file",
+      "result": "project challenge matched"
+    },
+    {
+      "tool": "EditorToolset.EditorAppToolset.IsPIERunning",
+      "result": false
+    },
+    {
+      "tool": "editor_toolset.toolsets.blueprint.BlueprintTools.create",
+      "result": {
+        "refPath": "/Game/StudioSmoke/BP_StudioSmoke_04da0ff4.BP_StudioSmoke_04da0ff4"
+      }
+    },
+    {
+      "tool": "editor_toolset.toolsets.blueprint.BlueprintTools.compile_blueprint",
+      "result": null
+    },
+    {
+      "tool": "editor_toolset.toolsets.asset.AssetTools.save_assets",
+      "result": true
+    },
+    {
+      "tool": "editor_toolset.toolsets.asset.AssetTools.exists",
+      "result": true
+    },
+    {
+      "tool": "editor_toolset.toolsets.scene.SceneTools.add_to_scene_from_asset",
+      "result": {
+        "refPath": "/Temp/Untitled_1.Untitled_1:PersistentLevel.BP_StudioSmoke_04da0ff4_C_0"
+      }
+    },
+    {
+      "tool": "editor_toolset.toolsets.scene.SceneTools.find_actors",
+      "result": [
+        {
+          "refPath": "/Temp/Untitled_1.Untitled_1:PersistentLevel.BP_StudioSmoke_04da0ff4_C_0"
+        }
+      ]
+    },
+    {
+      "tool": "EditorToolset.EditorAppToolset.StartPIE",
+      "result": null
+    },
+    {
+      "tool": "EditorToolset.EditorAppToolset.IsPIERunning",
+      "result": true
+    },
+    {
+      "tool": "EditorToolset.EditorAppToolset.StopPIE",
+      "result": null
+    },
+    {
+      "tool": "EditorToolset.EditorAppToolset.IsPIERunning",
+      "result": false
+    }
+  ]
+}

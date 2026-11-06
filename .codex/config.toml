@@ -1,0 +1,11 @@
+# Project trust is managed by the user. Model and approval policy inherit.
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 3
+
+# Activate with: python tools/studio.py connect --url http://127.0.0.1:8000/mcp
+[mcp_servers.unreal]
+url = "http://127.0.0.1:8000/mcp"
+enabled = false
+startup_timeout_sec = 30
+tool_timeout_sec = 120

@@ -1,0 +1,4 @@
+interface:
+  display_name: "UE FEATURE"
+  short_description: "Implement a scoped Unreal gameplay feature across code and a"
+  default_prompt: "Use $ue-feature for the current Unreal task, following AGENTS.md and the user's scope."

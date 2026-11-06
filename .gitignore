@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+studio.local.json
+.studio/
+Saved/
+Intermediate/
+Binaries/
+DerivedDataCache/
+.vs/
+*.sln

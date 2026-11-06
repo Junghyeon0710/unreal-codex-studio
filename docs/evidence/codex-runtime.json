@@ -1,0 +1,102 @@
+{
+  "exit_code": 0,
+  "seconds": 128.91,
+  "codex": "0.167.0-alpha.3.2",
+  "sandbox": "workspace-write",
+  "hook_trust": "one-shot reviewed fixture hooks",
+  "persisted_session": true,
+  "approval_policy": "on-request",
+  "approval_reviewer": "auto_review",
+  "mcp_calls": [
+    {
+      "server": "unreal",
+      "tool": "list_toolsets",
+      "status": "completed",
+      "error": null
+    },
+    {
+      "server": "unreal",
+      "tool": "describe_toolset",
+      "status": "completed",
+      "error": null
+    },
+    {
+      "server": "unreal",
+      "tool": "call_tool",
+      "status": "completed",
+      "error": null,
+      "arguments": {
+        "toolset_name": "editor_toolset.toolsets.scene.SceneTools",
+        "tool_name": "get_current_level",
+        "arguments": {}
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"returnValue\":\"/Temp/Untitled_1\"}"
+          }
+        ],
+        "structured_content": null
+      }
+    }
+  ],
+  "role_and_guard_events": [
+    {
+      "utc": "2026-11-06T06:23:46.732113+00:00",
+      "event": "SubagentStart",
+      "agent_id": "01a1af87-0a6d-70b3-bedb-c7c25cf7bc6c",
+      "agent_type": "cpp-engineer",
+      "denied": false
+    },
+    {
+      "utc": "2026-11-06T06:23:51.430780+00:00",
+      "event": "SubagentStart",
+      "agent_id": "01a1af87-1bcc-7590-ae46-112c026b749d",
+      "agent_type": "qa-engineer",
+      "denied": false
+    },
+    {
+      "utc": "2026-11-06T06:24:25.778501+00:00",
+      "event": "PreToolUse",
+      "agent_id": null,
+      "agent_type": null,
+      "denied": true
+    },
+    {
+      "utc": "2026-11-06T06:24:29.961030+00:00",
+      "event": "SubagentStop",
+      "agent_id": "01a1af87-1bcc-7590-ae46-112c026b749d",
+      "agent_type": "qa-engineer",
+      "denied": false
+    },
+    {
+      "utc": "2026-11-06T06:24:35.553509+00:00",
+      "event": "SubagentStop",
+      "agent_id": "01a1af87-0a6d-70b3-bedb-c7c25cf7bc6c",
+      "agent_type": "cpp-engineer",
+      "denied": false
+    }
+  ],
+  "guard_probe_file_exists": false,
+  "unit_tests": {
+    "executed": 16,
+    "failed": 0
+  },
+  "prior_failures": [
+    {
+      "case": "binary patch guard",
+      "cause": "native payload used tool_input.command",
+      "resolution": "added native payload handling and regression test; real hook retry denied write"
+    },
+    {
+      "case": "native MCP call under never approval policy",
+      "cause": "unattended harness could not service required approval",
+      "resolution": "reran with normal on-request automatic review; all three native calls completed"
+    }
+  ],
+  "tested_source_sha256_lf_single_eof": {
+    ".codex/hooks/guard.py": "8038c8ceda422cd87cc9aba9190d6e4d968fa9290e65414b23eb4aaaa03751bd",
+    "tools/mcp_client.py": "ebaca95bba67d5420d5c2f7a1f4ba1a7452c41ac7073c6d227306e5e1815430c"
+  }
+}

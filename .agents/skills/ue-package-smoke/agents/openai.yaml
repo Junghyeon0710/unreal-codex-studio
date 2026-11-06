@@ -1,0 +1,4 @@
+interface:
+  display_name: "UE PACKAGE SMOKE"
+  short_description: "Test startup of a built Unreal game separately from packagin"
+  default_prompt: "Use $ue-package-smoke for the current Unreal task, following AGENTS.md and the user's scope."
